@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 
 
+
+import { UserService} from '../../services/user.service';
 import { User } from '../../classes/user';
 
 @Component({
@@ -15,14 +17,15 @@ export class HomeComponent implements OnInit {
   user: User;
   users: User[] = [];
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getUsers();
   }
 
   getUsers(): void {
-
+    this.userService.getUsers()
+    .subscribe(users => this.users = users);
   }
 
 
