@@ -7,6 +7,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { UserService } from './services/user.service';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
