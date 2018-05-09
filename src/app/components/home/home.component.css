@@ -1,0 +1,10 @@
+h1, .login-container {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90px;
+}
