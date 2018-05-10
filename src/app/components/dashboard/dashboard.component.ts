@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 import {MatInputModule} from '@angular/material/input';
 
@@ -14,18 +16,20 @@ import { User } from '../../classes/user';
 })
 export class DashboardComponent implements OnInit {
 
-  users: User[] = [];
+  user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+  private router: Router,
+private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getUsers();
-    console.log('here');
+    this.getUser();
   }
 
-  getUsers(): void {
-    this.userService.getUsers()
-      .subscribe(users => this.users = users);
+  getUser(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.getUser(id)
+      .subscribe(user => this.user = user);
   }
 
 }
