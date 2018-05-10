@@ -26,6 +26,14 @@ export class UserService {
         );
     }
 
+    /** GET User by id. Will 404 if id not found */
+    getUser(id: number): Observable<User> {
+      const url = `${this.usersUrl}/${id}`;
+      return this.http.get<User>(url).pipe(
+        tap(_ => this.log(`fetched User id=${id}`))
+      );
+    }
+
   // Logs the content to the reportService
   private log(content: string) {
     if (!content) { return; }
