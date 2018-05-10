@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
+import {MatInputModule} from '@angular/material/input';
+
 import { UserService } from '../../services/user.service';
 import { User } from '../../classes/user';
 
