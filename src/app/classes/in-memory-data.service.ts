@@ -6,7 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
       {id: 0, email: 'janedoe@gmail.com',
-                      firstName: 'Jane', lastName: 'Doe' }
+                      firstName: 'Jane', lastName: 'Doe', zipcode: '06820' }
     ];
 
     return {
