@@ -1,0 +1,16 @@
+ul {
+    background: rgba(223, 217, 58, 0.5);
+    bottom: 0;
+    font-size: 8px;
+    list-style: none;
+    max-height: 100px;
+    overflow-y: scroll;
+    padding: 2px 5px;
+    position: fixed;
+  }
+  
+  li {
+    font-size: 12px;
+    height: 24px;
+  }
+  
