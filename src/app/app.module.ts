@@ -12,21 +12,22 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ReportService } from './services/report.service';
 import { UserService } from './services/user.service';
-import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './classes/in-memory-data.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AppDashboardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule,    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    BrowserModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
@@ -34,7 +35,6 @@ import { InMemoryDataService } from './classes/in-memory-data.service';
     ),
     AppRoutingModule,
     BrowserAnimationsModule,
-
     MatButtonModule
   ],
   exports: [
