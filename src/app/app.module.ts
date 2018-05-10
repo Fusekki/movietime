@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
@@ -38,12 +40,14 @@ import { ReportComponent } from './components/report/report.component';
     ),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [ReportService,
     UserService],
