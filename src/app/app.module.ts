@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -32,6 +32,7 @@ import { ReportComponent } from './components/report/report.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -45,6 +46,7 @@ import { ReportComponent } from './components/report/report.component';
   ],
   exports: [
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatInputModule
