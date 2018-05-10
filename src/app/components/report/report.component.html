@@ -1,3 +1,4 @@
-<p>
-  report works!
-</p>
+<ul *ngIf="reports">
+    <li *ngFor="let report of reports; let i = index;">{{i}} - {{report}}</li>
+</ul>
+   
