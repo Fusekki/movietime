@@ -4,7 +4,7 @@
 
   <div class="area-form">
     <mat-form-field class="area-full-width">
-      <input matInput placeholder="Zip Code" value="{{user.zipcode}}" [formControl]="zipcode" required>
+      <input matInput placeholder="Zip Code" [formControl]="zipcode" required>
       <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
