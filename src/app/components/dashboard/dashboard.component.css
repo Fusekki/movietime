@@ -1,3 +1,14 @@
-h3, .area-form, .button-row {
+h3, form, .button-row {
     text-align: center;
+}
+
+.admin {
+    background: rgba(223, 97, 58, 0.5);
+    bottom: 150px;
+    font-size: 10px;
+    list-style: none;
+    max-height: 100px;
+    overflow-y: scroll;
+    padding: 2px 5px;
+    position: fixed;
 }
