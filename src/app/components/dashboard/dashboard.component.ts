@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 
 import {
   FormGroup,
-  FormControl,
-  FormGroupDirective,
-  NgForm,
+  // FormControl,
+  // FormGroupDirective,
+  // NgForm,
   Validators,
-  FormBuilder,
-  AbstractControl
+  FormBuilder
+  // AbstractControl
 } from '@angular/forms';
 
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -28,20 +28,20 @@ import { User } from '../../classes/user';
 })
 export class DashboardComponent implements OnInit {
   user: User;
+  zipForm: FormGroup;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;
-
-
-  form = new FormGroup({
-   zipcode: new FormControl('', [Validators.required, Validators.pattern(this.zipPattern)])
- });
-
 
   // onSubmit() { this.submitted = true; }
 
   getErrorMessage() {
-    return this.zipcode.hasError('required')
+    console.log(this.zipForm.controls.zipcode);
+    return this.zipForm.controls.zipcode.hasError('required')
       ? 'You must enter a value'
-      : this.zipcode.hasError('pattern')
+      : this.zipForm.controls.zipcode.hasError('minlength')
+        ? 'Too short'
+        : this.zipForm.controls.zipcode.hasError('maxlength')
+        ? 'Too Long'
+        : this.zipForm.controls.zipcode.hasError('pattern')
         ? 'Not a valid zipcode'
         : '';
   }
@@ -55,12 +55,18 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-    this.zipcode = this.form.controls['zipcode'];
+    this.createForm();
   }
 
 
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.userService.getUser(id).subscribe(user => (this.user = user));
+  }
+
+  createForm() {
+    this.zipForm = this.fb.group({
+      zipcode: ['', [Validators.required, Validators.pattern(this.zipPattern), Validators.minLength(5), Validators.maxLength(10)] ]
+    });
   }
 }
