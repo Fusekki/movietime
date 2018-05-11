@@ -4,7 +4,22 @@
   <div class="area-form">
       <mat-form-field class="area-full-width">
         <!-- <input [(ngModel)]="user.zipcode" name="zipcode" matInput placeholder="Zip Code" pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/'> -->
-        <input matInput placeholder="Zip Code" name="zipcode" [formControl]="zipcodeFormControl">
+        <input  matInput placeholder="Zip Code" [formControl]="zipcode" required>
+        <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
+<!-- </div> -->
+<!-- <div *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)"
+     class="alert alert-danger">
+
+  <div *ngIf="zipcode.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="zipcode.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="zipcode.errors.forbiddenName">
+    Name cannot be Bob.
+  </div> -->
+
 <!-- </div> -->
