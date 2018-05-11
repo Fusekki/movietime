@@ -1,18 +1,18 @@
 <div class="template-container" *ngIf="user">
-
   <h3>Please enter your zip code for a list of movie theaters in your area.</h3>
-
-  <form [formGroup]="form" ngSubmit="onSubmit(form.value)">
-    <mat-form-field class="area-full-width">
-      <input matInput placeholder="Zip Code" formControlName="zipcode" required class="form-control">
-      <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <div class="button-row">
-      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Submit</button>
+  <form [formGroup]="zipForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <mat-form-field class="area-full-width">
+        <input matInput placeholder="Zip Code" formControlName="zipcode" class="form-control" required>
+        <mat-error *ngIf="zipForm.invalid && (zipForm.dirty || zipForm.touched)">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!zipForm.valid" mat-raised-button color="primary">Submit</button>
+      </div>
     </div>
   </form>
-
-
-
-
+</div>
+<div class="admin">
+  <p>Form value: {{ zipForm.value | json }}</p>
+  <p>Form status: {{ zipForm.status | json }}</p>
 </div>
