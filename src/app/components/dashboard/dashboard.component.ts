@@ -29,19 +29,14 @@ import { User } from '../../classes/user';
 export class DashboardComponent implements OnInit {
   user: User;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;
-  // // form: FormGroup;
-  // zipcode: AbstractControl;
+
 
   form = new FormGroup({
-    // zipcode: new FormControl()
-    zipcode = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.zipPattern)
-  ]);
+   zipcode: new FormControl('', [Validators.required, Validators.pattern(this.zipPattern)])
  });
 
 
-  onSubmit() { this.submitted = true; }
+  // onSubmit() { this.submitted = true; }
 
   getErrorMessage() {
     return this.zipcode.hasError('required')
@@ -61,10 +56,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getUser();
     this.zipcode = this.form.controls['zipcode'];
-
-    // this.form = this.fb.group({
-    //   zipcode: [null, Validators.required, Validators.pattern(this.zipPattern)],
-    // });
   }
 
 
