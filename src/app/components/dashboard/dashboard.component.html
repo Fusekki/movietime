@@ -1,17 +1,17 @@
-  <div class="template-container" *ngIf="user">
+<div class="template-container" *ngIf="user">
 
   <h3>Please enter your zip code for a list of movie theaters in your area.</h3>
 
   <div class="area-form">
-      <mat-form-field class="area-full-width">
-        <input  matInput placeholder="Zip Code" value="{{user.zipcode}}" [formControl]="zipcode" required>
-        <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+    <mat-form-field class="area-full-width">
+      <input matInput placeholder="Zip Code" value="{{user.zipcode}}" [formControl]="zipcode" required>
+      <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
   </div>
 
 
-<div class="button-row">
-  <button mat-raised-button color="primary">Submit</button>
-</div>
+  <div class="button-row">
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
 
 </div>
