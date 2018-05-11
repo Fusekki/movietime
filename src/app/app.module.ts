@@ -49,8 +49,7 @@ import { ReportComponent } from './components/report/report.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule
+    MatInputModule
   ],
   providers: [ReportService,
     UserService],
