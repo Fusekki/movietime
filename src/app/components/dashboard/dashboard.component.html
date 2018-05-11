@@ -2,16 +2,17 @@
 
   <h3>Please enter your zip code for a list of movie theaters in your area.</h3>
 
-  <div class="area-form">
+  <form [formGroup]="form" ngSubmit="onSubmit(form.value)">
     <mat-form-field class="area-full-width">
-      <input matInput placeholder="Zip Code" [formControl]="zipcode" required>
+      <input matInput placeholder="Zip Code" formControlName="zipcode" required class="form-control">
       <mat-error *ngIf="zipcode.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
-  </div>
+    <div class="button-row">
+      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Submit</button>
+    </div>
+  </form>
 
 
-  <div class="button-row">
-    <button mat-raised-button color="primary">Submit</button>
-  </div>
+
 
 </div>
