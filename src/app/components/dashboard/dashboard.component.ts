@@ -4,12 +4,15 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import {
+  FormGroup,
   FormControl,
   FormGroupDirective,
   NgForm,
   Validators,
-  FormBuilder
+  FormBuilder,
+  AbstractControl
 } from '@angular/forms';
+
 import { ErrorStateMatcher } from '@angular/material/core';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -26,11 +29,19 @@ import { User } from '../../classes/user';
 export class DashboardComponent implements OnInit {
   user: User;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;
+  // // form: FormGroup;
+  // zipcode: AbstractControl;
 
-  zipcode = new FormControl('', [
+  form = new FormGroup({
+    // zipcode: new FormControl()
+    zipcode = new FormControl('', [
     Validators.required,
     Validators.pattern(this.zipPattern)
   ]);
+ });
+
+
+  onSubmit() { this.submitted = true; }
 
   getErrorMessage() {
     return this.zipcode.hasError('required')
@@ -46,9 +57,16 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder
   ) {}
+
   ngOnInit() {
     this.getUser();
+    this.zipcode = this.form.controls['zipcode'];
+
+    // this.form = this.fb.group({
+    //   zipcode: [null, Validators.required, Validators.pattern(this.zipPattern)],
+    // });
   }
+
 
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
