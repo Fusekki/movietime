@@ -56,7 +56,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getErrorMessage() {
-    console.log(this.zipForm.controls.zipcode);
     return this.zipForm.controls.zipcode.hasError('required')
       ? 'You must enter a value'
       : this.zipForm.controls.zipcode.hasError('minlength')
@@ -69,6 +68,23 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.zipForm.valid) {
+      console.log('Form Submitted!');
+    }
+
+    const newZip = this.zipForm.value.zipcode;
+
+    this.userService.updateUser({
+      id: this.user.id,
+      email: this.user.email,
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      zipcode: newZip
+    } as User)
+      .subscribe(() => this.redirect());
+  }
+
+  redirect(): void {
     this.router.navigate(['./' + this.user.id + '/theaters']);
   }
 }
