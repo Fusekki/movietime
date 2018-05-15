@@ -7,8 +7,8 @@ import { TheaterSearchResultsComponent } from './components/theater-search-resul
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: ':id/profile', component: DashboardComponent },
-  { path: ':id/theaters', component: TheaterSearchResultsComponent },
+  { path: ':user/profile', component: DashboardComponent },
+  { path: ':user/theaters/:zipcode', component: TheaterSearchResultsComponent },
   // These defaults need to be last
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
