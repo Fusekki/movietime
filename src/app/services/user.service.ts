@@ -34,6 +34,13 @@ export class UserService {
       );
     }
 
+    /** PUT: update the User on the server */
+    updateUser (user: User): Observable<any> {
+      return this.http.put(this.usersUrl, user, httpOptions).pipe(
+        tap(_ => this.log(`updated User id=${user.id}`))
+      );
+    }
+
   // Logs the content to the reportService
   private log(content: string) {
     if (!content) { return; }
