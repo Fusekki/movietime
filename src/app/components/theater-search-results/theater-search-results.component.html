@@ -1,3 +1,9 @@
-<p>
-  theater-search-results works!
+<p *ngIf="user">
+  {{user.id}}
+  {{user.firstName}}
+  {{user.lastName}}
+  {{user.email}}
+  {{user.zipcode}}
 </p>
+
+<h2>Theatres near {{zipcode}}...</h2>
