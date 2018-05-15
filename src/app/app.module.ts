@@ -20,6 +20,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './classes/in-memory-data.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ReportComponent } from './components/report/report.component';
+import { TheatreSearchResultsComponent } from './components/theatre-search-results/theatre-search-results.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ReportComponent } from './components/report/report.component';
     HomeComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    ReportComponent
+    ReportComponent,
+    TheatreSearchResultsComponent
   ],
   imports: [
     BrowserModule,
