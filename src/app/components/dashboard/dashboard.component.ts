@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   user: User;
   zipForm: FormGroup;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;
+  newZip: number;
 
   constructor(
     private userService: UserService,
@@ -45,7 +46,7 @@ export class DashboardComponent implements OnInit {
 
 
   getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('user');
     this.userService.getUser(id).subscribe(user => (this.user = user));
   }
 
@@ -72,19 +73,19 @@ export class DashboardComponent implements OnInit {
       console.log('Form Submitted!');
     }
 
-    const newZip = this.zipForm.value.zipcode;
+    this.newZip = this.zipForm.value.zipcode;
 
     this.userService.updateUser({
       id: this.user.id,
       email: this.user.email,
       firstName: this.user.firstName,
       lastName: this.user.lastName,
-      zipcode: newZip
+      zipcode: this.newZip
     } as User)
       .subscribe(() => this.redirect());
   }
 
   redirect(): void {
-    this.router.navigate(['./' + this.user.id + '/theaters']);
+    this.router.navigate(['./' + this.user.id + '/theaters/' + this.newZip]);
   }
 }
