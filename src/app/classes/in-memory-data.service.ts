@@ -10,7 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const areas = [
-      {}
+      { id: 6820, theaters: [] }
     ];
 
     return {
