@@ -9,8 +9,13 @@ export class InMemoryDataService implements InMemoryDbService {
                       firstName: 'Jane', lastName: 'Doe', zipcode: '' }
     ];
 
+    const areas = [
+      {}
+    ];
+
     return {
-      users
+      users,
+      areas
       };
   }
 }
