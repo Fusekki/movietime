@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
+import { ApiService } from '../../services/api.service';
+
 import { AreaService } from '../../services/area.service';
 import { UserService } from '../../services/user.service';
 import { Area } from '../../classes/area';
@@ -25,6 +27,7 @@ export class TheaterSearchResultsComponent implements OnInit {
   username: string;
 
   constructor(
+    private apiService: ApiService,
     private areaService: AreaService,
     private userService: UserService,
     private router: Router,
@@ -36,6 +39,7 @@ export class TheaterSearchResultsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.getArea();
+      this.getTheaters();
     });
   }
 
@@ -60,6 +64,10 @@ export class TheaterSearchResultsComponent implements OnInit {
     // console.log(typeof(id));
     // const zipcode = parseInt(this.zipcode, 10);
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
+  }
+
+  getTheaters(): void {
+    this.apiService.getMovies();
   }
 
 }
