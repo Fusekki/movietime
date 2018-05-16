@@ -14,6 +14,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user.service';
 import { AreaService } from './services/area.service';
+import { ApiService } from './services/api.service';
+
 import { ReportService } from './services/report.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,7 +56,8 @@ import { TheaterSearchResultsComponent } from './components/theater-search-resul
     MatButtonModule,
     MatInputModule
   ],
-  providers: [AreaService,
+  providers: [ApiService,
+    AreaService,
     ReportService,
     UserService],
   bootstrap: [AppComponent]
