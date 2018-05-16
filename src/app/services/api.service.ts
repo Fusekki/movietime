@@ -14,7 +14,7 @@ export class ApiService {
   constructor(private http: HttpClient,
   private reportService: ReportService) { }
 
-  private theatersUrl = 'api/theaters';  // URL to web api
+  private moviesUrl = 'api/movies';  // URL to web api
 
   // Save this for when we go live
 
@@ -24,14 +24,13 @@ export class ApiService {
   // }
 
   /** GET Useres from the server */
-  getTheaters(): Observable<any[]> {
-    return this.http.get<any[]>(this.theatersUrl)
+  getMovies(): Observable<any[]> {
+    return this.http.get<any[]>(this.moviesUrl)
     .pipe(
-      tap(theaters => this.log(`theaters users`))
+      tap(movies => this.log(`Movies list`))
     );
   }
 
-  
   // Logs the content to the reportService
   private log(content: string) {
     if (!content) { return; }

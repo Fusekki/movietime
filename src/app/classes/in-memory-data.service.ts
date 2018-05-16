@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 6820, theaters: [] }
     ];
 
-    const theaters = [{
+    const movies = [{
       "tmsId": "MV010279620000",
       "rootId": "14427239",
       "subType": "Feature Film",
@@ -1685,7 +1685,7 @@ export class InMemoryDataService implements InMemoryDbService {
     return {
       users,
       areas,
-      theaters
+      movies
     };
   }
 }

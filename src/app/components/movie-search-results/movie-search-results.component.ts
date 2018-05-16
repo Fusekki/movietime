@@ -15,17 +15,17 @@ import { User } from '../../classes/user';
 
 
 @Component({
-  selector: 'app-theater-search-results',
-  templateUrl: './theater-search-results.component.html',
-  styleUrls: ['./theater-search-results.component.css']
+  selector: 'app-movie-search-results',
+  templateUrl: './movie-search-results.component.html',
+  styleUrls: ['./movie-search-results.component.css']
 })
-export class TheaterSearchResultsComponent implements OnInit {
+export class MovieSearchResultsComponent implements OnInit {
 
   area: Area;
   user: User;
   zipcode: number;
   username: string;
-  theaters: any[];
+  movies: any[];
 
   constructor(
     private apiService: ApiService,
@@ -40,8 +40,7 @@ export class TheaterSearchResultsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.getArea();
-      // Save this for when we go live
-      this.getTheaters();
+      this.getMovies();
     });
   }
 
@@ -59,13 +58,13 @@ export class TheaterSearchResultsComponent implements OnInit {
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
   }
 
-  // getTheaters(): void {
+  // getmovies(): void {
   //   this.apiService.getMovies()
   //   .subscribe(data => { console.log(data); });
   // }
 
-  getTheaters(): void {
-    this.apiService.getTheaters().subscribe(theaters => (this.theaters = theaters));
+  getMovies(): void {
+    this.apiService.getMovies().subscribe(movies => (this.movies = movies));
   }
 
 }

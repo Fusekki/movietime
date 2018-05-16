@@ -8,6 +8,8 @@
 
 <h2>Theatres near {{zipcode}}...</h2>
 
-<p *ngFor='let theater of theaters'>
-  {{theater | json}}
-</p>
+<div class='movie-container' *ngFor='let movie of movies'>
+  <h2> Movie - {{ movie.title }}</h2>
+
+  {{movie | json}}
+</div>
