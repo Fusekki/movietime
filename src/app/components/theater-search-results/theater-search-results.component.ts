@@ -58,8 +58,8 @@ export class TheaterSearchResultsComponent implements OnInit {
 
     // const id = +this.route.snapshot.paramMap.get('zipcode');
     // console.log(typeof(id));
-    const zipcode = parseInt(this.zipcode, 10);
-    this.areaService.getArea(zipcode).subscribe(area => (this.area = area));
+    // const zipcode = parseInt(this.zipcode, 10);
+    this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
   }
 
 }
