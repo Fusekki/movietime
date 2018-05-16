@@ -25,6 +25,7 @@ export class TheaterSearchResultsComponent implements OnInit {
   user: User;
   zipcode: number;
   username: string;
+  theaters: any[];
 
   constructor(
     private apiService: ApiService,
@@ -39,6 +40,7 @@ export class TheaterSearchResultsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.getArea();
+      // Save this for when we go live
       this.getTheaters();
     });
   }
@@ -50,24 +52,20 @@ export class TheaterSearchResultsComponent implements OnInit {
   }
 
   getZipcode(): void {
-    // const id = +this.route.snapshot.paramMap.get('zipcode');
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
   }
 
   getArea(): void {
-    // const zip = parseInt(this.zipcode);
-    // console.log(zip);
-    // console.log(typeof(zip));
-    // this.areaService.getArea(zip).subscribe(area => (this.area = area));
-
-    // const id = +this.route.snapshot.paramMap.get('zipcode');
-    // console.log(typeof(id));
-    // const zipcode = parseInt(this.zipcode, 10);
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
   }
 
+  // getTheaters(): void {
+  //   this.apiService.getMovies()
+  //   .subscribe(data => { console.log(data); });
+  // }
+
   getTheaters(): void {
-    this.apiService.getMovies();
+    this.apiService.getTheaters().subscribe(theaters => (this.theaters = theaters));
   }
 
 }
