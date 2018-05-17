@@ -17,7 +17,7 @@
     <li>Cast: {{movie.topCast}}</li>
     <li>Director: {{movie.directors}}</li>
     <li>{{movie.shortDescription}}</li>
-    <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li>
+  <!-- <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li> -->
     <li>{{movie.runTime}}</li>
     <li *ngFor="let showtime of movie.showtimes">{{showtime.theatre.name}} - {{showtime.dateTime | date:'shortTime'}}</li>
     <li *ngFor="let un of uniqueData$">{{un}}</li>
