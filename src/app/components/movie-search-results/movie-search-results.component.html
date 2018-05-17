@@ -10,6 +10,22 @@
 
 <div class='movie-container' *ngFor='let movie of movies'>
   <h2> Movie - {{ movie.title }}</h2>
+  <ul>
+    <li>{{movie.subType}}</li>
+    <li>{{movie.releaseDate}}</li>
+    <li>{{movie.genres}}</li>
+    <li>Cast: {{movie.topCast}}</li>
+    <li>Director: {{movie.directors}}</li>
+    <li>{{movie.shortDescription}}</li>
+    <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li>
+    <li>{{movie.runTime}}</li>
+    <li *ngFor="let showtime of movie.showtimes">{{showtime.theatre.name}}</li>
+    <li *ngFor="let un of uniqueData$">{{un}}</li>
+  </ul>
+
+
+
+
 
   {{movie | json}}
 </div>
