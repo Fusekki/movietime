@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user.service';
 import { AreaService } from './services/area.service';
 import { ApiService } from './services/api.service';
+import { MovieService } from './services/movie.service';
 
 import { ReportService } from './services/report.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -58,6 +59,7 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
   ],
   providers: [ApiService,
     AreaService,
+    MovieService,
     ReportService,
     UserService],
   bootstrap: [AppComponent]
