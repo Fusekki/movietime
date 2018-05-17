@@ -11,9 +11,11 @@ import { MatInputModule } from '@angular/material/input';
 import { ApiService } from '../../services/api.service';
 
 import { AreaService } from '../../services/area.service';
+import { MovieService } from '../../services/movie.service';
 import { UserService } from '../../services/user.service';
 import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
+import { Movie } from '../../classes/movie';
 
 
 @Component({
@@ -28,11 +30,13 @@ export class MovieSearchResultsComponent implements OnInit {
   zipcode: number;
   username: string;
   movies: any[];
-  uniqueData$;
+  parsedMovies: Movie[] = [];
+  tempMovies: [];
 
   constructor(
     private apiService: ApiService,
     private areaService: AreaService,
+    private movieService: MovieService,
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -45,19 +49,7 @@ export class MovieSearchResultsComponent implements OnInit {
       this.getArea();
       this.getMovies().subscribe(_ => {
         ;
-        // this.uniqueData$ = new Set(this.movies.map(movie => movie.showtimes));
-        // this.uniqueData$ = this.movies.filter((value, index, array) =>
-        // !array.filter((v, i) => JSON.stringify(value) == JSON.stringify(v) && i < index).length);
-
-        for (let movie of this.movies) {
-            // console.log(movie);
-            for (let showtime of movie.showtimes) {
-              console.log(showtime.theatre.name);
-              console.log(showtime.dateTime);
-            }
-          // console.log(entry.showtimes);
-        }
-        // console.log(this.uniqueData$);
+        this.parseMovies(this.movies);
       });
     });
   }
@@ -76,15 +68,14 @@ export class MovieSearchResultsComponent implements OnInit {
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
   }
 
-  // getmovies(): void {
-  //   this.apiService.getMovies()
-  //   .subscribe(data => { console.log(data); });
-  // }
-
   getMovies() {
     // this.apiService.getMovies().subscribe(movies => (this.movies = movies));
     return this.apiService.getMovies().pipe(map((movies => this.movies = movies)));
     // this.uniqueData$ = this.movies.map(data => _.uniqBy(data, 'movies.showtimes.theatre'));
+  }
+
+  parseMovies(data) {
+    return this.movieService.parseMovies(data);
   }
 
   // this.getMbposts().subscribe(_ => {
