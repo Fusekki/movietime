@@ -46,12 +46,18 @@ export class MovieSearchResultsComponent implements OnInit {
       this.getMovies().subscribe(_ => {
         ;
         // this.uniqueData$ = new Set(this.movies.map(movie => movie.showtimes));
-        this.uniqueData$ = this.movies.filter((value, index, array) => !array.filter((v, i) => JSON.stringify(value) == JSON.stringify(v) && i < index).length);
+        // this.uniqueData$ = this.movies.filter((value, index, array) =>
+        // !array.filter((v, i) => JSON.stringify(value) == JSON.stringify(v) && i < index).length);
 
-        for (let entry of this.uniqueData$) {
-          console.log(entry);
+        for (let movie of this.movies) {
+            // console.log(movie);
+            for (let showtime of movie.showtimes) {
+              console.log(showtime.theatre.name);
+              console.log(showtime.dateTime);
+            }
+          // console.log(entry.showtimes);
         }
-        console.log(this.uniqueData$);
+        // console.log(this.uniqueData$);
       });
     });
   }
