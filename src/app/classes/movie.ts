@@ -20,5 +20,5 @@ export class Movie {
     rated: string;
     advisories: string[];
     runTime: string;
-    theaters: string[];
+    theaters: any[];
 }
