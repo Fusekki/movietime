@@ -29,9 +29,10 @@ export class MovieSearchResultsComponent implements OnInit {
   user: User;
   zipcode: number;
   username: string;
-  movies: any[];
+  movies: Movie[] = [];
   parsedMovies: Movie[] = [];
   tempMovies: Movie[] = [];
+  dataToParse: string[] = [];
 
   constructor(
     private apiService: ApiService,
@@ -49,7 +50,7 @@ export class MovieSearchResultsComponent implements OnInit {
       this.getArea();
       this.getMovies().subscribe(_ => {
         ;
-        this.parseMovies(this.movies);
+        this.movies = this.parseMovies(this.dataToParse);
       });
     });
   }
@@ -70,7 +71,7 @@ export class MovieSearchResultsComponent implements OnInit {
 
   getMovies() {
     // this.apiService.getMovies().subscribe(movies => (this.movies = movies));
-    return this.apiService.getMovies().pipe(map((movies => this.movies = movies)));
+    return this.apiService.getMovies().pipe(map((data => this.dataToParse = data)));
     // this.uniqueData$ = this.movies.map(data => _.uniqBy(data, 'movies.showtimes.theatre'));
   }
 
