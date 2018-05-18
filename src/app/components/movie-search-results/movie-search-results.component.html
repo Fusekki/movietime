@@ -14,18 +14,14 @@
     <li>{{movie.subType}}</li>
     <li>{{movie.releaseDate}}</li>
     <li>{{movie.genres}}</li>
-    <li>Cast: {{movie.topCast}}</li>
+    <li>Cast: {{movie.cast}}</li>
     <li>Director: {{movie.directors}}</li>
     <li>{{movie.shortDescription}}</li>
   <!-- <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li> -->
     <li>{{movie.runTime}}</li>
-    <li *ngFor="let showtime of movie.showtimes">{{showtime.theatre.name}} - {{showtime.dateTime | date:'shortTime'}}</li>
-    <li *ngFor="let un of uniqueData$">{{un}}</li>
   </ul>
+  <div *ngFor="let theater of movie.theaters">{{theater.name}}>
+    <div *ngFor="let time of theater.times">{{time | date: 'shortTime'}}</div>
+  </div>
 
-
-
-
-
-  {{movie | json}}
 </div>
