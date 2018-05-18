@@ -17,12 +17,13 @@ const httpOptions = {
 @Injectable()
 export class MovieService {
 
-  movies: any[] = [];
+  movies: Movie[] = [];
 
   constructor(private http: HttpClient,
     private reportService: ReportService) { }
 
-  parseMovies(data): void {
+
+  parseMovies(data) {
     // console.log(data);
     this.movies = [];
     let theaters = [];
@@ -52,5 +53,14 @@ export class MovieService {
       this.movies.push(current);
     }
     console.log(this.movies);
+    this.log('Movie parse received');
+    return this.movies;
   }
+
+  // Logs the content to the reportService
+  private log(content: string) {
+    if (!content) { return; }
+    this.reportService.addReport( content );
+  }
+
 }
