@@ -1,3 +1,5 @@
+import { Theater } from './theater';
+
 export class Movie {
     constructor(t)  {
         this.title = t;
@@ -20,5 +22,5 @@ export class Movie {
     rated: string;
     advisories: string[];
     runTime: string;
-    theaters: any[];
+    theaters: Theater[];
 }
