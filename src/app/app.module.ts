@@ -17,6 +17,8 @@ import { AreaService } from './services/area.service';
 import { ApiService } from './services/api.service';
 import { MovieService } from './services/movie.service';
 
+import { DurationPipe } from './classes/duration-pipe';
+
 import { ReportService } from './services/report.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +32,7 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
 @NgModule({
   declarations: [
     AppComponent,
+    DurationPipe,
     HomeComponent,
     PageNotFoundComponent,
     DashboardComponent,
