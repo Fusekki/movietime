@@ -12,7 +12,7 @@
   <h2> Movie - {{ movie.title }}</h2>
   <ul>
     <li>{{movie.subType}}</li>
-    <li>{{movie.releaseDate}}</li>
+    <li>Release Date: {{movie.releaseDate | date: 'shortDate'}}</li>
     <li>{{movie.genres}}</li>
     <li>Cast: {{movie.cast}}</li>
     <li>Director: {{movie.directors}}</li>
