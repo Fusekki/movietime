@@ -26,7 +26,7 @@ export class MovieService {
     // console.log(data);
     this.movies = [];
     let theaters = [];
-    let current = Movie;
+    let current = {} as Movie;
     for (let movie of data) {
       // console.log(movie.title);
       current = new Movie(movie.title);
@@ -34,7 +34,7 @@ export class MovieService {
       for (let showtime of movie.showtimes) {
         // Check if theater exists, if not create it
         // if (current.theaters.length > 0) {
-        let t = current.theaters.filter(x => x.name == showtime.theatre.name);
+        const t = current.theaters.filter(x => x.name === showtime.theatre.name);
         // console.log(t);
         if (t.length > 0) {
           // console.log('found');
