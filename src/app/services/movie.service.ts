@@ -43,7 +43,7 @@ export class MovieService {
     let current = {} as Movie;
     for (let movie of data) {
       // console.log(movie.title);
-      current = new Movie(movie.title, movie.releaseDate,
+      current = new Movie(movie.title, movie.subType, movie.releaseDate,
         movie.genres, movie.topCast, movie.directors,
          movie.shortDescription, movie.rated, movie.advisories,
         movie.runTime);
