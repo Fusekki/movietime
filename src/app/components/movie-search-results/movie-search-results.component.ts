@@ -31,7 +31,7 @@ export class MovieSearchResultsComponent implements OnInit {
   username: string;
   movies: any[];
   parsedMovies: Movie[] = [];
-  tempMovies: [];
+  tempMovies: Movie[] = [];
 
   constructor(
     private apiService: ApiService,
