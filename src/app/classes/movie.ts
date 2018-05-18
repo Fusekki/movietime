@@ -1,16 +1,21 @@
 import { Theater } from './theater';
 
+// current = new Movie(movie.title, movie.releaseDate,
+//   movie.genres, movie.cast, movies.directors,
+//    movie.shortDescription, movie.rated, movie.advisories,
+//   movie.ranTime);
+
 export class Movie {
-    constructor(t)  {
+    constructor(t, rd, g, c, d, sd, r, ad, rt)  {
         this.title = t;
-        this.releaseDate = '';
-        this.genres = [];
-        this.cast = [];
-        this.directors = [];
-        this.shortDescription = '';
-        this.rated = '';
-        this.advisories = [];
-        this.runTime = '';
+        this.releaseDate = rd;
+        this.genres = g;
+        this.cast = c;
+        this.directors = d;
+        this.shortDescription = sd;
+        this.rated = r;
+        this.advisories = ad;
+        this.runTime = rt;
         this.theaters = [];
      }
     title: string;
