@@ -1,5 +1,6 @@
-.movie-container {
-    border: 2px solid yellow;
+.list-container {
+    border: 2px solid gray;
+    margin: 20px 0;
 }
 
 .box {
@@ -10,4 +11,8 @@
 
 .time {
   padding: 5px;
+}
+
+.mat-list {
+  background: lightgray;
 }
