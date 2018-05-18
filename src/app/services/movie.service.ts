@@ -22,7 +22,7 @@ export class MovieService {
   constructor(private http: HttpClient,
     private reportService: ReportService) { }
 
-  parseMovies(data: any[]): void {
+  parseMovies(data): void {
     // console.log(data);
     this.movies = [];
     let theaters = [];
