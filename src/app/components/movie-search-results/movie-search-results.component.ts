@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 
 import { ApiService } from '../../services/api.service';
 

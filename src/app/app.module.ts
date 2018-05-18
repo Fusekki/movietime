@@ -6,8 +6,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -51,14 +54,17 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatIconModule,
     MatInputModule,
+    MatListModule,
     ReactiveFormsModule
   ],
   exports: [
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule
   ],
   providers: [ApiService,
     AreaService,
