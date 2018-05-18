@@ -1,3 +1,13 @@
 .movie-container {
     border: 2px solid yellow;
 }
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.time {
+  padding: 5px;
+}
