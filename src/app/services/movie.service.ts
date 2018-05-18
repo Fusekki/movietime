@@ -23,15 +23,30 @@ export class MovieService {
     private reportService: ReportService) { }
 
 
+  //   constructor(t)  {
+  //     this.title = t;
+  //     this.releaseDate = '';
+  //     this.genres = [];
+  //     this.cast = [];
+  //     this.directors = [];
+  //     this.shortDescription = '';
+  //     this.rated = '';
+  //     this.advisories = [];
+  //     this.runTime = '';
+  //     this.theaters = [];
+  //  }
+
   parseMovies(data) {
     // console.log(data);
     this.movies = [];
-    let theaters = [];
+    // let theaters = [];
     let current = {} as Movie;
     for (let movie of data) {
       // console.log(movie.title);
-      current = new Movie(movie.title);
-
+      current = new Movie(movie.title, movie.releaseDate,
+        movie.genres, movie.topCast, movie.directors,
+         movie.shortDescription, movie.rated, movie.advisories,
+        movie.runTime);
       for (let showtime of movie.showtimes) {
         // Check if theater exists, if not create it
         // if (current.theaters.length > 0) {
@@ -39,7 +54,6 @@ export class MovieService {
         // console.log(t);
         if (t.length > 0) {
           // console.log('found');
-          // console.log(t);
           t[0].times.push(showtime.dateTime);
         } else {
           // console.log('not found');
