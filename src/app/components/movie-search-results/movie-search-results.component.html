@@ -1,27 +1,45 @@
-<p *ngIf="user">
-  {{user.id}}
-  {{user.firstName}}
-  {{user.lastName}}
-  {{user.email}}
-  {{user.zipcode}}
-</p>
 
-<h2>Theatres near {{zipcode}}...</h2>
-
-<div class='movie-container' *ngFor='let movie of movies'>
-  <h2> Movie - {{ movie.title }}</h2>
-  <ul>
-    <li>{{movie.subType}}</li>
-    <li>Release Date: {{movie.releaseDate | date: 'shortDate'}}</li>
-    <li>{{movie.genres}}</li>
-    <li>Cast: {{movie.cast}}</li>
-    <li>Director: {{movie.directors}}</li>
-    <li>{{movie.shortDescription}}</li>
-  <!-- <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li> -->
-    <li>{{movie.runTime | duration}}</li>
-  </ul>
-  <div *ngFor="let theater of movie.theaters">{{theater.name}}>
-    <div *ngFor="let time of theater.times">{{time | date: 'shortTime'}}</div>
+<h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
+<!-- <h2>Theatres near {{zipcode}}...</h2> -->
+<div class="list-container" *ngFor='let movie of movies'>
+  <mat-list>
+    <mat-list-item>
+      <mat-icon mat-list-icon>settings_overscan</mat-icon>
+      <h4 mat-line>{{movie.title}}</h4>
+    </mat-list-item>
+    <mat-list-item>
+      <p mat-line> {{movie.subType}} </p>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>date_range</mat-icon>
+      <p mat-line> {{movie.releaseDate | date: 'shortDate'}} </p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>{{movie.genres}}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon mat-list-icon>group</mat-icon>
+      <p>{{movie.cast}}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>Director: {{movie.directors}}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>{{movie.shortDescription}}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>{{movie.runTime | duration}}</p>
+    </mat-list-item>
+  </mat-list>
+  <mat-list *ngFor='let theater of movie.theaters'>
+    <mat-list-item>
+        <mat-icon mat-list-icon>theaters</mat-icon>
+              <h4 mat-line>{{theater.name}}</h4>
+    </mat-list-item>
+    <mat-list-item>
+      <div class="box">
+        <span class='time' *ngFor='let time of theater.times'> <h4 mat-line>{{time | date: 'shortTime'}}</h4></span>
+      </div>
+    </mat-list-item>
+  </mat-list>
   </div>
-
-</div>
