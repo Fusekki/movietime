@@ -24,10 +24,10 @@ export class ApiService {
   // }
 
   /** GET Useres from the server */
-  getMovies(): Observable<any[]> {
-    return this.http.get<any[]>(this.moviesUrl)
+  getMovies(): Observable<string[]> {
+    return this.http.get<string[]>(this.moviesUrl)
     .pipe(
-      tap(movies => this.log(`Movies list`))
+      tap(data => this.log(`Movie data received`))
     );
   }
 
@@ -35,7 +35,6 @@ export class ApiService {
   private log(content: string) {
     if (!content) { return; }
     this.reportService.addReport( content );
-
   }
 
 }
