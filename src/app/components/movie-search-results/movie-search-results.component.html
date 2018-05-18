@@ -18,7 +18,7 @@
     <li>Director: {{movie.directors}}</li>
     <li>{{movie.shortDescription}}</li>
   <!-- <li>Rated {{movie.ratings[0].code}} for {{movie.advisories}}</li> -->
-    <li>{{movie.runTime}}</li>
+    <li>{{movie.runTime | duration}}</li>
   </ul>
   <div *ngFor="let theater of movie.theaters">{{theater.name}}>
     <div *ngFor="let time of theater.times">{{time | date: 'shortTime'}}</div>
