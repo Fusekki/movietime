@@ -36,7 +36,7 @@ export class MovieSearchResultsComponent implements OnInit {
   movies: Movie[];
   parsedMovies: Movie[] = [];
   // dataToParse: any[] = [];
-  dataToParse: string[]
+  dataToParse: string[];
   posters: Observable<any>[];
   data: string[];
   poster: string;
@@ -61,7 +61,7 @@ export class MovieSearchResultsComponent implements OnInit {
         // this.parsedMovies = this.parseMovies(this.dataToParse);
         for (let x = 0; x < this.dataToParse.length; x++) {
           this.getMoviePosters(this.dataToParse[x])
-            .subscribe(data => (console.log(data.results)));
+            .subscribe(data => (console.log(data)));
         }
         this.movies = this.parseMovies(this.dataToParse, this.poster);
       });
