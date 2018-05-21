@@ -36,9 +36,9 @@ export class MovieSearchResultsComponent implements OnInit {
   movies: Movie[];
   parsedMovies: Movie[] = [];
   // dataToParse: any[] = [];
-  dataToParse: Observable<any>;
+  dataToParse: string[]
   posters: Observable<any>[];
-  data: Observable<any>;
+  data: string[];
   poster: string;
 
   constructor(
@@ -56,7 +56,8 @@ export class MovieSearchResultsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.getArea();
-      this.getMovies().subscribe(_ => {
+      this.getMovies().subscribe(res => {
+        (this.dataToParse = res);
         // this.parsedMovies = this.parseMovies(this.dataToParse);
         for (let x = 0; x < this.dataToParse.length; x++) {
           this.getMoviePosters(this.dataToParse[x])
