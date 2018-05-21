@@ -14,6 +14,7 @@ import { ApiService } from '../../services/api.service';
 
 import { AreaService } from '../../services/area.service';
 import { MovieService } from '../../services/movie.service';
+import { MoviedbService } from '../../services/moviedb.service';
 import { UserService } from '../../services/user.service';
 import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
@@ -39,6 +40,7 @@ export class MovieSearchResultsComponent implements OnInit {
     private apiService: ApiService,
     private areaService: AreaService,
     private movieService: MovieService,
+    private moviedbService: MoviedbService,
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute) { }
