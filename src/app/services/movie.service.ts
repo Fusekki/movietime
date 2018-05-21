@@ -75,10 +75,12 @@ export class MovieService {
     return this.movies;
   }
 
-  getMoviePosters(movies): any {
+  getMoviePosters(movies) {
     for (let x = 0; x < movies.length; x++) {
+      console.log(movies[x].title);
       this.moviedbService.getMoviePosters(movies[x].title)
       .subscribe(movieposter => this.moviePosters.push(this.movieposter));
+      return this.moviePosters;
     }
   }
 
