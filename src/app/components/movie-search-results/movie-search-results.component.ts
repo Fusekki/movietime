@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -32,12 +33,12 @@ export class MovieSearchResultsComponent implements OnInit {
   user: User;
   zipcode: number;
   username: string;
-  movies: Movie[] = [];
+  movies: Movie[];
   parsedMovies: Movie[] = [];
   // dataToParse: any[] = [];
-  dataToParse: any;
-  posters: string[] = [];
-  data: any;
+  dataToParse: Observable<any>;
+  posters: Observable<any>[];
+  data: Observable<any>;
   poster: string;
 
   constructor(
