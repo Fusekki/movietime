@@ -8,6 +8,7 @@ import { Movie } from '../classes/movie';
 import { Theater } from '../classes/theater';
 import { Area } from '../classes/area';
 import { ReportService } from './report.service';
+import { MoviedbService } from './moviedb.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,8 +19,11 @@ const httpOptions = {
 export class MovieService {
 
   movies: Movie[] = [];
+  moviePosters: string[] = [];
+  movieposter: string;
 
   constructor(private http: HttpClient,
+    private moviedbService: MoviedbService,
     private reportService: ReportService) { }
 
 
@@ -69,6 +73,13 @@ export class MovieService {
     console.log(this.movies);
     this.log('Movie parse received');
     return this.movies;
+  }
+
+  getMoviePosters(movies): any {
+    for (let x = 0; x < movies.length; x++) {
+      this.moviedbService.getMoviePosters(movies[x].title)
+      .subscribe(movieposter => this.moviePosters.push(this.movieposter));
+    }
   }
 
   // Logs the content to the reportService
