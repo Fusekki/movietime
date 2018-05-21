@@ -23,7 +23,7 @@ export class MoviedbService {
       movieName = movieName.replace(/\s/g, '%20');
       const url = this.moviesUrl + this.apiKey + '&language=en-US&query=' + movieName
        + '&page=1&include_adult=false&primary_release_year=' + releaseDate;
-      console.log(url);
+      // console.log(url);
       return this.http.get<string[]>(url)
       .pipe(
         tap(data => this.log('MovieDB data received'))
