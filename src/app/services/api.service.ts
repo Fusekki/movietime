@@ -18,9 +18,15 @@ export class ApiService {
 
   // Save this for when we go live
 
-  getMovies() {
+  // getMovies():Observable {
+  //   const url = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=2018-05-21&zip=06820&api_key=3pb6pdpr5j5eeyucy9a5s5ua';
+  //   return this.http.get(url);
+  // }
+
+
+  getMovies(): Observable<string[]> {
     const url = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=2018-05-21&zip=06820&api_key=3pb6pdpr5j5eeyucy9a5s5ua';
-    return this.http.get(url);
+    return this.http.get<string[]>(url);
   }
 
   /** GET Useres from the server */
