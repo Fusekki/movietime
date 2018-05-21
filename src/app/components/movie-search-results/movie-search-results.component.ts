@@ -33,7 +33,6 @@ export class MovieSearchResultsComponent implements OnInit {
   username: string;
   movies: Movie[] = [];
   parsedMovies: Movie[] = [];
-  tempMovies: Movie[] = [];
   dataToParse: string[] = [];
 
   constructor(
@@ -52,7 +51,8 @@ export class MovieSearchResultsComponent implements OnInit {
       this.getArea();
       this.getMovies().subscribe(_ => {
         ;
-        this.movies = this.parseMovies(this.dataToParse);
+        this.parsedMovies = this.parseMovies(this.dataToParse);
+        this.movies = this.getMoviePosters(this.movieDetails);
       });
     });
   }
@@ -79,6 +79,10 @@ export class MovieSearchResultsComponent implements OnInit {
 
   parseMovies(data) {
     return this.movieService.parseMovies(data);
+  }
+
+  getMoviePosters(movies) {
+    return movies;
   }
 
   // this.getMbposts().subscribe(_ => {
