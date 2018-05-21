@@ -86,7 +86,7 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   getMoviePosters(movies) {
-    return this.movieService.getMoviePosters(movies).pipe(map(data => this.posters = data)));
+    return this.movieService.getMoviePosters(movies).pipe(map((data => this.posters = data)));
   }
 
   // this.getMbposts().subscribe(_ => {
