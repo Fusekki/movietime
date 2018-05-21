@@ -37,8 +37,8 @@ export class MovieSearchResultsComponent implements OnInit {
   parsedMovies: Movie[] = [];
   // dataToParse: any[] = [];
   dataToParse: string[];
-  posters: Observable<any>[];
-  data: string[];
+  posters: any[];
+  data: any[];
   poster: string;
 
   constructor(
@@ -56,14 +56,14 @@ export class MovieSearchResultsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.getArea();
-      this.getMovies().subscribe(res => {
-        (this.dataToParse = res);
+      this.getMovies().subscribe(_ => {
+        this.dataToParse = _;
         // this.parsedMovies = this.parseMovies(this.dataToParse);
         for (let x = 0; x < this.dataToParse.length; x++) {
           this.getMoviePosters(this.dataToParse[x])
             .subscribe(data => (console.log(data)));
         }
-        this.movies = this.parseMovies(this.dataToParse, this.poster);
+        this.movies = this.parseMovies(this.dataToParse, this.posters);
       });
     });
   }
