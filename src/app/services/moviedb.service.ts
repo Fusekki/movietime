@@ -19,19 +19,15 @@ export class MoviedbService {
     private moviesUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
     // Save this for when we go live
 
-
-    // getMovies() {
-    //   const url = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=2018-05-21&zip=06820&api_key=3pb6pdpr5j5eeyucy9a5s5ua';
-    //   return this.http.get(url);
-    // }
-    getMoviePosters(movieName): Observable<string[]> {
+    getMoviePosters(movieName, releaseDate): Observable<string[]> {
       movieName = movieName.replace(/\s/g, '%20');
-      console.log(movieName);
-      const url = this.moviesUrl + this.apiKey + '&language=en-US&query=' + movieName + '&page=1&include_adult=false';
-      return this.http.get<string[]>(url);
-      // .pipe(
-      //   tap(data => this.log('MovieDB data received'))
-      // );
+      const url = this.moviesUrl + this.apiKey + '&language=en-US&query=' + movieName
+       + '&page=1&include_adult=false&primary_release_year=' + releaseDate;
+      console.log(url);
+      return this.http.get<string[]>(url)
+      .pipe(
+        tap(data => this.log('MovieDB data received'))
+      );
     }
 
     /** GET Useres from the server */
