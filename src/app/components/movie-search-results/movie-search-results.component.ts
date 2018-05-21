@@ -4,8 +4,6 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { map } from 'rxjs/operators';
-// import {mergeMap} from 'rxjs/operators';
-// import { Observable } from 'rxjs/Observable';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,7 +38,7 @@ export class MovieSearchResultsComponent implements OnInit {
   dataToParse: any;
   posters: string[] = [];
   data: any;
-  poster: any;
+  poster: string;
 
   constructor(
     private apiService: ApiService,
@@ -59,26 +57,12 @@ export class MovieSearchResultsComponent implements OnInit {
       this.getArea();
       this.getMovies().subscribe(_ => {
         // this.parsedMovies = this.parseMovies(this.dataToParse);
-        for (let x = 0; x < this.dataToParse.length; x++ ) {
+        for (let x = 0; x < this.dataToParse.length; x++) {
           this.getMoviePosters(this.dataToParse[x])
-          // .pipe(map(res => res))
-          .subscribe(data =>  { this.poster = data; this.posters.push(this.poster); } );
-          // console.log(this.posters);
+            .subscribe(data => (console.log(data.results)));
         }
-        // console.log(this.posters.length);
-        this.movies = this.parseMovies(this.dataToParse, this.posters);
+        this.movies = this.parseMovies(this.dataToParse, this.poster);
       });
-      // this.getMovies()
-      //   .subscribe(data => (this.dataToParse = data));
-      //       // .pipe(map((res: Response) => res.json()))
-      //       // .pipe(map((data => this.dataToParse = data)));
-      //       this.parsedMovies = this.parseMovies(this.dataToParse);
-      //       // .pipe(mergeMap(movie => this.http.get(customer.contractUrl))
-      //       this.getMoviePosters(this.parsedMovies)
-      //       // .pipe(mergeMap(movies => this.getMoviePosters(movies)))
-      //       .map((poster: Response) => this.posters.push(poster));
-            // .subscribe(res => this.contract = res);
-
     });
   }
 
@@ -104,24 +88,14 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   parseMovies(data, posters) {
-    console.log(posters);
+    // console.log(posters);
     return this.movieService.parseMovies(data, posters);
   }
 
   getMoviePosters(movie) {
-    // console.log(movies);
-    // for (let x = 0; x < movies.length; x++) {
-        console.log(movie.title);
-       return this.moviedbService.getMoviePosters(movie.title).pipe(map((data => this.data = data)));
-    // }
-    // return this.posters;
-    // return this.posters;
-    // return this.movieService.getMoviePosters(movies);
+    const year = movie.releaseDate.slice(0, 4);
+    return this.moviedbService.getMoviePosters(movie.title, year).pipe(map((data => this.data = data)));
+
 
   }
-  // this.getMbposts().subscribe(_ => {
-  //   ;
-  //   this.draftPosts = this.mbposts.filter(mbpost => mbpost.draft == true);
-  // });
-
 }
