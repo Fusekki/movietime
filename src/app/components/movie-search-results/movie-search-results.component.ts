@@ -33,7 +33,9 @@ export class MovieSearchResultsComponent implements OnInit {
   username: string;
   movies: Movie[] = [];
   parsedMovies: Movie[] = [];
-  dataToParse: string[] = [];
+  // dataToParse: any[] = [];
+  dataToParse: any;
+  posters: any;
 
   constructor(
     private apiService: ApiService,
@@ -53,7 +55,8 @@ export class MovieSearchResultsComponent implements OnInit {
         ;
         this.parsedMovies = this.parseMovies(this.dataToParse);
         this.movies = this.getMoviePosters(this.parsedMovies);
-        // this.movies = this.getMoviePosters(this.movieDetails);
+        console.log(this.parsedMovies);
+        // console.log(this.movies);
       });
     });
   }
@@ -83,7 +86,7 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   getMoviePosters(movies) {
-    return this.movieService.getMoviePosters(movies);
+    return this.movieService.getMoviePosters(movies).pipe(map(data => this.posters = data)));
   }
 
   // this.getMbposts().subscribe(_ => {
