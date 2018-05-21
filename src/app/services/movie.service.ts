@@ -8,7 +8,6 @@ import { Movie } from '../classes/movie';
 import { Theater } from '../classes/theater';
 import { Area } from '../classes/area';
 import { ReportService } from './report.service';
-import { MoviedbService } from './moviedb.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,7 +22,7 @@ export class MovieService {
   movieposter: string;
 
   constructor(private http: HttpClient,
-    private moviedbService: MoviedbService,
+    // private moviedbService: MoviedbService,
     private reportService: ReportService) { }
 
 
@@ -40,21 +39,21 @@ export class MovieService {
   //     this.theaters = [];
   //  }
 
-  parseMovies(data) {
-    // console.log(data);
+  parseMovies(data, posters) {
     this.movies = [];
     // let theaters = [];
     let current = {} as Movie;
-    for (let movie of data) {
-      // console.log(movie.title);
-      current = new Movie(movie.title, movie.subType, movie.releaseDate,
-        movie.genres, movie.topCast, movie.directors,
-         movie.shortDescription, movie.rated, movie.advisories,
-        movie.runTime);
-      for (let showtime of movie.showtimes) {
+    for (let x = 0; x < data.length; x++) {
+      // console.log(posters[x]);
+      let dd = this.findPoster(data[x].title, data[x].releaseData, posters);
+      current = new Movie(data[x].title, data[x].subType, data[x].releaseDate,
+        data[x].genres, data[x].topCast, data[x].directors,
+         data[x].shortDescription, data[x].rated, data[x].advisories,
+        data[x].runTime, dd);
+      for (let showtime of data[x].showtimes) {
         // Check if theater exists, if not create it
         // if (current.theaters.length > 0) {
-        const t = current.theaters.filter(x => x.name === showtime.theatre.name);
+        const t = current.theaters.filter(z => z.name === showtime.theatre.name);
         // console.log(t);
         if (t.length > 0) {
           // console.log('found');
@@ -70,18 +69,22 @@ export class MovieService {
       }
       this.movies.push(current);
     }
-    console.log(this.movies);
+    // console.log(this.movies);
     this.log('Movie parse received');
     return this.movies;
   }
 
-  getMoviePosters(movies) {
-    for (let x = 0; x < movies.length; x++) {
-      console.log(movies[x].title);
-      this.moviedbService.getMoviePosters(movies[x].title)
-      .subscribe(movieposter => this.moviePosters.push(this.movieposter));
-      return this.moviePosters;
+  findPoster(title, date, posterObj) {
+    console.log(posterObj);
+    console.log(typeof(posterObj));
+    for (const x of posterObj) {
+        console.log(posterObj[x]);
     }
+    // for (let result in posterObj.results) {
+    //   if (result.release_date == date) {
+    //     return result.poster_path;
+    //   }
+    // }
   }
 
   // Logs the content to the reportService
