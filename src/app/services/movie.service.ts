@@ -24,6 +24,8 @@ export class MovieService {
     private reportService: ReportService) { }
 
   parseMovies(data, posters) {
+    // console.log(data);
+    console.log(posters);
     this.movies = [];
     // let theaters = [];
     let current = {} as Movie;
@@ -54,8 +56,8 @@ export class MovieService {
   }
 
   findPoster(title, date, posterObj) {
-    // console.log(posterObj);
-    console.log(typeof(posterObj));
+    console.log(posterObj);
+    // console.log(typeof(posterObj));
     for (const x of posterObj) {
         console.log(posterObj[x]);
     }
