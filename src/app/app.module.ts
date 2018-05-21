@@ -19,6 +19,7 @@ import { UserService } from './services/user.service';
 import { AreaService } from './services/area.service';
 import { ApiService } from './services/api.service';
 import { MovieService } from './services/movie.service';
+import { MoviedbService } from './services/moviedb.service';
 
 import { DurationPipe } from './classes/duration-pipe';
 
@@ -69,6 +70,7 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
   providers: [ApiService,
     AreaService,
     MovieService,
+    MoviedbService,
     ReportService,
     UserService],
   bootstrap: [AppComponent]
