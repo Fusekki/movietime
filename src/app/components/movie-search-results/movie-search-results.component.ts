@@ -55,16 +55,17 @@ export class MovieSearchResultsComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
-      this.getArea();
-      this.getMovies().subscribe(_ => {
-        this.dataToParse = _;
-        // this.parsedMovies = this.parseMovies(this.dataToParse);
-        for (let x = 0; x < this.dataToParse.length; x++) {
-          this.getMoviePosters(this.dataToParse[x])
-            .subscribe(data => (console.log(data)));
-        }
-        this.movies = this.parseMovies(this.dataToParse, this.posters);
-      });
+    });
+    this.getArea();
+    this.getMovies().subscribe(_ => {
+      this.dataToParse = _;
+      console.log(this.dataToParse);
+      // this.parsedMovies = this.parseMovies(this.dataToParse);
+      for (let x = 0; x < this.dataToParse.length; x++) {
+        this.getMoviePosters(this.dataToParse[x])
+          .subscribe(data => (console.log(data)));
+      }
+      this.movies = this.parseMovies(this.dataToParse, this.posters);
     });
   }
 
@@ -84,9 +85,9 @@ export class MovieSearchResultsComponent implements OnInit {
 
   getMovies() {
     // this.apiService.getMovies().subscribe(movies => (this.movies = movies));
-    return this.apiService.getMovies().pipe(map((data => this.dataToParse = data)));
+    // return this.apiService.getMovies().pipe(map((data => this.dataToParse = data)));
     // this.uniqueData$ = this.movies.map(data => _.uniqBy(data, 'movies.showtimes.theatre'));
-    // return this.apiService.getMovies();
+    return this.apiService.getMovies();
   }
 
   parseMovies(data, posters) {
