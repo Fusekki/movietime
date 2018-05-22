@@ -57,8 +57,8 @@ export class MovieSearchResultsComponent implements OnInit {
       this.zipcode = params['zipcode'];
     });
     this.getArea();
-    this.getMovies().subscribe(_ => {
-      this.dataToParse = _;
+    this.getMovies().subscribe(res => {
+      this.dataToParse = res;
       console.log(this.dataToParse);
       // this.parsedMovies = this.parseMovies(this.dataToParse);
       for (let x = 0; x < this.dataToParse.length; x++) {
