@@ -1,7 +1,6 @@
-
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <!-- <h2>Theatres near {{zipcode}}...</h2> -->
-<div class="list-container" *ngFor='let movie of showings'>
+<div class="list-container" *ngFor='let showing of showings'>
   <mat-list>
     <mat-list-item>
       <mat-icon mat-list-icon>settings_overscan</mat-icon>
@@ -31,18 +30,15 @@
       <p>{{showing.runTime | duration}}</p>
     </mat-list-item>
   </mat-list>
-  <mat-list *ngFor='let theater of showing.theaters'>
+  <mat-list *ngFor='let showtime of showing.showtimes'>
     <mat-list-item>
         <mat-icon mat-list-icon>theaters</mat-icon>
-              <h4 mat-line>{{theater.name}}</h4>
+              <h4 mat-line>{{showtime.theatre.name}}</h4>
     </mat-list-item>
     <mat-list-item>
       <div class="box">
-        <span class='time' *ngFor='let time of theater.times'> <h4 mat-line>{{time | date: 'shortTime'}}</h4></span>
+        <span class='time'><h4 mat-line>{{showtime.dateTime | date: 'shortTime'}}</h4></span>
       </div>
     </mat-list-item>
   </mat-list>
   </div>
-  <!-- <div *ngFor='let showing of showings'> -->
-    {{this.showings}}
-  <!-- </div> -->
