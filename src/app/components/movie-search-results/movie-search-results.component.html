@@ -1,43 +1,45 @@
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <!-- <h2>Theatres near {{zipcode}}...</h2> -->
-<div class="list-container" *ngFor='let showing of showings'>
+<div class="list-container" *ngFor='let movie of movies'>
   <mat-list>
     <mat-list-item>
       <mat-icon mat-list-icon>settings_overscan</mat-icon>
-      <h4 mat-line>{{showing.title}}</h4>
+      <h4 mat-line>{{movie.title}}</h4>
     </mat-list-item>
     <mat-list-item>
-      <p mat-line> {{showing.subType}} </p>
+      <p mat-line> {{movie.subType}} </p>
     </mat-list-item>
     <mat-list-item>
         <mat-icon mat-list-icon>date_range</mat-icon>
-      <p mat-line> {{showing.releaseDate | date: 'shortDate'}} </p>
+      <p mat-line> {{movie.releaseDate | date: 'shortDate'}} </p>
     </mat-list-item>
     <mat-list-item>
-      <p>{{showing.genres}}</p>
+      <p>{{movie.genres}}</p>
     </mat-list-item>
     <mat-list-item>
       <mat-icon mat-list-icon>group</mat-icon>
-      <p>{{showing.cast}}</p>
+      <p>{{movie.cast}}</p>
     </mat-list-item>
     <mat-list-item>
-      <p>Director: {{showing.directors}}</p>
+      <p>Director: {{movie.directors}}</p>
     </mat-list-item>
     <mat-list-item>
-      <p>{{showing.shortDescription}}</p>
+      <p>{{movie.shortDescription}}</p>
     </mat-list-item>
     <mat-list-item>
-      <p>{{showing.runTime | duration}}</p>
+      <p>{{movie.runTime | duration}}</p>
     </mat-list-item>
   </mat-list>
-  <mat-list *ngFor='let showtime of showing.showtimes'>
+  <mat-list *ngFor='let theater of movie.theaters'>
     <mat-list-item>
         <mat-icon mat-list-icon>theaters</mat-icon>
-              <h4 mat-line>{{showtime.theatre.name}}</h4>
+              <h4 mat-line>{{theater.name}}</h4>
     </mat-list-item>
     <mat-list-item>
       <div class="box">
-        <span class='time'><h4 mat-line>{{showtime.dateTime | date: 'shortTime'}}</h4></span>
+        <span class='time' *ngFor="let time of theater.times">
+          <h4 mat-line>{{time | date: 'shortTime'}}</h4>
+        </span>
       </div>
     </mat-list-item>
   </mat-list>
