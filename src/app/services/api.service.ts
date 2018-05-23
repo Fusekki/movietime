@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Showings } from './../classes/showings';
+import { Showings } from './../interfaces/showings';
 
 import { ReportService } from './report.service';
 
