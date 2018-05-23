@@ -58,7 +58,8 @@ export class MovieSearchResultsComponent implements OnInit {
     });
     this.getArea();
     this.getMovies()
-    .subscribe((data: Showings[]) => {this.showings = data; });
+    .subscribe((data: Showings[]) => {
+      this.movies = this.parseMovies(data); });
       // this.parsedMovies = this.parseMovies(this.dataToParse);
       // for (let x = 0; x < this.dataToParse.length; x++) {
       //   this.getMoviePosters(this.dataToParse[x])
@@ -88,11 +89,15 @@ export class MovieSearchResultsComponent implements OnInit {
     // this.uniqueData$ = this.movies.map(data => _.uniqBy(data, 'movies.showtimes.theatre'));
     return this.apiService.getMovies();
   }
-
-  parseMovies(data, posters) {
+  parseMovies(data) {
     // console.log(posters);
-    return this.movieService.parseMovies(data, posters);
+    return this.movieService.parseMovies(data);
   }
+
+  // parseMovies(data, posters) {
+  //   // console.log(posters);
+  //   return this.movieService.parseMovies(data, posters);
+  // }
 
   getMoviePosters(movie) {
     const year = movie.releaseDate.slice(0, 4);
