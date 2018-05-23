@@ -6,7 +6,7 @@ import { Theater } from './theater';
 //   movie.ranTime);
 
 export class Movie {
-    constructor(t, st, rd, g, c, d, sd, r, ad, rt, p)  {
+    constructor(t, st, rd, g, c, d, sd, r, ad, rt)  {
         this.title = t;
         this.subType = st;
         this.releaseDate = rd;
@@ -18,7 +18,7 @@ export class Movie {
         this.advisories = ad;
         this.runTime = rt;
         this.theaters = [];
-        this.poster = p;
+        // this.poster = p;
      }
     title: string;
     subType: string;
