@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -65,7 +66,11 @@ export class MovieSearchResultsComponent implements OnInit {
         this.getMoviePosters(this.movies[x])
         .subscribe((poster: Posters) => {
           console.log(poster);
-          this.posters.push(poster); });
+          const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
+          this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
+          this.movies[x].voteAverage = p[0].vote_average;
+          this.movies[x].popularity = Math.trunc(p[0].popularity);
+        });
       }
     });
       // this.parsedMovies = this.parseMovies(this.dataToParse);
