@@ -25,19 +25,12 @@ export class ApiService {
 
   // Save this for when we go live
 
-  // getMovies():Observable {
-  //   const url = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=2018-05-21&zip=06820&api_key=3pb6pdpr5j5eeyucy9a5s5ua';
-  //   return this.http.get(url);
-  // }
-
-
   getMovies(): Observable<Showings[]> {
     let m = this.m.toString();
     if (m.length < 2) {
       m = '0' + m;
     }
     this.date = (this.y).toString() + '-' + m  + '-' + (this.d).toString();
-    console.log(this.date);
     const url = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=' + this.date + '&zip=06820&api_key=3pb6pdpr5j5eeyucy9a5s5ua';
     return this.http.get<Showings[]>(url);
   }
