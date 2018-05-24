@@ -61,7 +61,7 @@ export class MovieSearchResultsComponent implements OnInit {
       for (let x = 0; x < this.movies.length; x++) {
         this.getMoviePosters(this.movies[x])
         .subscribe((poster: Posters) => {
-          console.log(poster);
+          // console.log(poster);
           const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
           if (p.length) {
             this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
