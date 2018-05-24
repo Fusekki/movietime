@@ -1,6 +1,5 @@
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <div class="list-container" *ngFor='let movie of movies'>
-
   <mat-list>
     <mat-list-item>
     <h4>{{movie.title | uppercase}}</h4> <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
