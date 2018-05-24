@@ -36,6 +36,11 @@
 .description-container {
   display: flex;
   flex-direction: column;
+  margin-right: 5px;
+}
+
+.description-wrapper {
+  font-size: 14px;
 }
 
 .poster-container {
@@ -57,4 +62,18 @@
 
 .ratings-header {
   margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  font-weight: bold;
+  margin: 10px 0 0 1em;
+}
+
+.square {
+  background: red;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+
 }
