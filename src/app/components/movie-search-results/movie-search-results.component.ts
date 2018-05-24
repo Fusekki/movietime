@@ -100,6 +100,7 @@ export class MovieSearchResultsComponent implements OnInit {
 
   getMoviePosters(movie) {
     const year = movie.releaseDate.slice(0, 4);
-    return this.moviedbService.getMoviePosters(movie.title, year).pipe(map((data => this.data = data)));
+    // return this.moviedbService.getMoviePosters(movie.title, year).pipe(map((data => this.data = data)));
+    return this.moviedbService.getMoviePosters(movie.title, year);
   }
 }
