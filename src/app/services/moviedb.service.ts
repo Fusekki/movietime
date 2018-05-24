@@ -24,7 +24,6 @@ export class MoviedbService {
     getMoviePosters(movieName, releaseDate): Observable<Posters> {
       // Remove the 3D from the end of title and replace the whitespaces
       movieName = movieName.replace(/[3][D]/g, '').replace(/\s/g, '%20');
-      console.log(movieName);
       const url = this.moviesUrl + this.apiKey + '&language=en-US&query=' + movieName
        + '&page=1&include_adult=false&primary_release_year=' + releaseDate;
       // console.log(url);
