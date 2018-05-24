@@ -34,6 +34,6 @@ export class Movie {
     runTime: string;
     theaters: Theater[];
     poster: string;
-    voteAverage: number;
-    popularity: number;
+    voteAverage: string;
+    popularity: string;
 }
