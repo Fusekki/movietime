@@ -1,18 +1,35 @@
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
-<!-- <h2>Theatres near {{zipcode}}...</h2> -->
+<h2>Theatres near {{zipcode}}...</h2>
 <div class="list-container" *ngFor='let movie of movies'>
+
   <mat-list>
     <mat-list-item>
-      <mat-icon mat-list-icon>settings_overscan</mat-icon>
-      <h4 mat-line>{{movie.title}}</h4>
+    <h4>{{movie.title | uppercase}}</h4> <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
     </mat-list-item>
-    <mat-list-item>
-      <p mat-line> {{movie.subType}} </p>
-    </mat-list-item>
-    <mat-list-item>
-        <mat-icon mat-list-icon>date_range</mat-icon>
-      <p mat-line> {{movie.releaseDate | date: 'shortDate'}} </p>
-    </mat-list-item>
+    <div class='poster-container'>
+      <div class='poster-wrapper'>
+        <img src='{{movie.poster}}' />
+      </div>
+      <div class='description-container'>
+        <div class='ratings-wrapper'>
+          <div class="ratings-item">
+            <div class='ratings-header'>
+              Rating
+            </div>
+            <span matBadge='{{movie.voteAverage}}' class='badge' matBadgeSize='large' matBadgeOverlap="false"></span>
+          </div>
+          <div class='ratings-item'>
+            <div class='ratings-header'>
+                Popularity
+              </div>
+              <span matBadge='{{movie.popularity}}' class='badge'  matBadgeSize='large' matBadgeOverlap="false"></span>
+          </div>
+        </div>
+        <div class='description-wrapper'>
+            <p>{{movie.shortDescription}}</p>
+        </div>
+      </div>
+    </div>
     <mat-list-item>
       <p>{{movie.genres}}</p>
     </mat-list-item>
