@@ -63,9 +63,11 @@ export class MovieSearchResultsComponent implements OnInit {
         .subscribe((poster: Posters) => {
           console.log(poster);
           const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
-          this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
-          this.movies[x].voteAverage = p[0].vote_average;
-          this.movies[x].popularity = Math.trunc(p[0].popularity);
+          if (p.length) {
+            this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
+            this.movies[x].voteAverage = p[0].vote_average;
+            this.movies[x].popularity = Math.trunc(p[0].popularity);
+          }
         });
       }
     });
