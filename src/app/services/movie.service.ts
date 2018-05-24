@@ -30,24 +30,24 @@ export class MovieService {
     // let theaters = [];
     let movie = {} as Movie;
     for (let x = 0; x < showings.length; x++) {
+      const showing = showings[x];
       movie = new Movie(
-        showings[x].title,
-        showings[x].subType,
-        showings[x].releaseDate,
-        showings[x].genres,
-        showings[x].topCast,
-        showings[x].directors,
-        showings[x].shortDescription,
-        showings[x].rated,
-        showings[x].advisories,
-        showings[x].runTime
+        showing.title,
+        showing.subType,
+        showing.releaseDate,
+        showing.genres,
+        showing.topCast,
+        showing.directors,
+        showing.shortDescription,
+        showing.rated,
+        showing.advisories,
+        showing.runTime
       );
-      for (let showtime of showings[x].showtimes) {
+      for (const showtime of showing.showtimes) {
         // Check if theater exists, if not create it
         const s = movie.theaters.filter(t => t.name === showtime.theatre.name);
         if (s.length > 0) {
           s[0].times.push(showtime.dateTime);
-          // console.log(showtime.dateTime);
         } else {
           movie.theaters.push({
             name: showtime.theatre.name,
