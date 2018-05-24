@@ -21,6 +21,7 @@ import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
 import { Movie } from '../../classes/movie';
 import { Showings } from '../../interfaces/showings';
+import { Posters } from '../../interfaces/posters';
 
 
 @Component({
@@ -35,11 +36,11 @@ export class MovieSearchResultsComponent implements OnInit {
   zipcode: number;
   username: string;
   movies: Movie[];
-  parsedMovies: Movie[] = [];
-  posters: any[];
-  data: any[];
-  poster: string;
-  showings: Showings[];
+  // parsedMovies: Movie[] = [];
+  posters: Posters[] = [];
+  // data: any[];
+  // poster: string;
+  // showings: Showings[];
 
   constructor(
     private apiService: ApiService,
@@ -59,12 +60,16 @@ export class MovieSearchResultsComponent implements OnInit {
     this.getArea();
     this.getMovies()
     .subscribe((data: Showings[]) => {
-      this.movies = this.parseMovies(data); });
+      this.movies = this.parseMovies(data);
+      for (let x = 0; x < this.movies.length; x++) {
+        this.getMoviePosters(this.movies[x])
+        .subscribe((poster: Posters) => {
+          console.log(poster);
+          this.posters.push(poster); });
+      }
+    });
       // this.parsedMovies = this.parseMovies(this.dataToParse);
-      // for (let x = 0; x < this.dataToParse.length; x++) {
-      //   this.getMoviePosters(this.dataToParse[x])
-      //     .subscribe(data => (console.log(data)));
-      // }
+
       // this.movies = this.parseMovies(this.dataToParse, this.posters);
     // });
   }
