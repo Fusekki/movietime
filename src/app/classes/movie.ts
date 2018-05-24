@@ -18,7 +18,9 @@ export class Movie {
         this.advisories = ad;
         this.runTime = rt;
         this.theaters = [];
-        // this.poster = p;
+        this.poster = null;
+        this.voteAverage = null;
+        this.popularity = null;
      }
     title: string;
     subType: string;
@@ -32,4 +34,6 @@ export class Movie {
     runTime: string;
     theaters: Theater[];
     poster: string;
+    voteAverage: number;
+    popularity: number;
 }
