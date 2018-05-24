@@ -37,11 +37,7 @@ export class MovieSearchResultsComponent implements OnInit {
   zipcode: number;
   username: string;
   movies: Movie[];
-  // parsedMovies: Movie[] = [];
   posters: Posters[] = [];
-  // data: any[];
-  // poster: string;
-  // showings: Showings[];
 
   constructor(
     private apiService: ApiService,
@@ -73,12 +69,7 @@ export class MovieSearchResultsComponent implements OnInit {
         });
       }
     });
-      // this.parsedMovies = this.parseMovies(this.dataToParse);
-
-      // this.movies = this.parseMovies(this.dataToParse, this.posters);
-    // });
   }
-
 
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('user');
@@ -94,20 +85,12 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   getMovies() {
-    // this.apiService.getMovies().subscribe(movies => (this.movies = movies));
-    // return this.apiService.getMovies().pipe(map((data => this.dataToParse = data)));
-    // this.uniqueData$ = this.movies.map(data => _.uniqBy(data, 'movies.showtimes.theatre'));
+
     return this.apiService.getMovies();
   }
   parseMovies(data) {
-    // console.log(posters);
     return this.movieService.parseMovies(data);
   }
-
-  // parseMovies(data, posters) {
-  //   // console.log(posters);
-  //   return this.movieService.parseMovies(data, posters);
-  // }
 
   getMoviePosters(movie) {
     const year = movie.releaseDate.slice(0, 4);
