@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
+import { Posters } from './../interfaces/posters';
+
 import { ReportService } from './report.service';
 
 const httpOptions = {
@@ -19,12 +21,12 @@ export class MoviedbService {
     private moviesUrl = 'https://api.themoviedb.org/3/search/movie?api_key=';
     // Save this for when we go live
 
-    getMoviePosters(movieName, releaseDate): Observable<string[]> {
+    getMoviePosters(movieName, releaseDate): Observable<Posters> {
       movieName = movieName.replace(/\s/g, '%20');
       const url = this.moviesUrl + this.apiKey + '&language=en-US&query=' + movieName
        + '&page=1&include_adult=false&primary_release_year=' + releaseDate;
       // console.log(url);
-      return this.http.get<string[]>(url)
+      return this.http.get<Posters>(url)
       .pipe(
         tap(data => this.log('MovieDB data received'))
       );
