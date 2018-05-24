@@ -65,8 +65,12 @@ export class MovieSearchResultsComponent implements OnInit {
           const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
           if (p.length) {
             this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
-            this.movies[x].voteAverage = p[0].vote_average;
-            this.movies[x].popularity = Math.trunc(p[0].popularity);
+            this.movies[x].voteAverage = p[0].vote_average.toString();
+            this.movies[x].popularity = Math.trunc(p[0].popularity).toString();
+          } else {
+            this.movies[x].poster = 'assets/no-image.jpg';
+            this.movies[x].voteAverage = 'N/A';
+            this.movies[x].popularity = 'N/A';
           }
         });
       }
