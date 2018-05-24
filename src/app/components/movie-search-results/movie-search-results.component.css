@@ -9,10 +9,48 @@
   justify-content: flex-start;
 }
 
+.date {
+  margin-left: 10px;
+}
+
 .time {
   padding: 5px;
 }
 
 .mat-list {
   background: lightgray;
+}
+
+>>> .mat-badge-content {
+  font-size: 17px !important;
+}
+
+.badge {
+   left: 7px;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-container {
+  display: flex;
+  margin-left: 1em;
+}
+
+.poster-wrapper {
+  margin-right: 1em;
+}
+
+.ratings-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.ratings-item {
+  margin: 0 10px;
+}
+
+.ratings-header {
+  margin-bottom: 20px;
 }
