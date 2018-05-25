@@ -39,6 +39,7 @@ export class MovieService {
         showing.topCast,
         showing.directors,
         showing.shortDescription,
+        showing.longDescription,
         showing.rated,
         showing.advisories,
         showing.runTime
