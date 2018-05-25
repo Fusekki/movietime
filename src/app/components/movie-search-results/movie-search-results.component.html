@@ -1,69 +1,77 @@
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
-<div class="list-container" *ngFor='let movie of movies'>
-  <mat-list>
-    <mat-list-item>
-    <h4>{{movie.title | uppercase}}</h4> <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
-    </mat-list-item>
-    <div class='poster-container'>
-      <div class='poster-wrapper'>
-        <img src='{{movie.poster}}' />
-      </div>
-      <div class='description-container'>
-        <div class='ratings-wrapper'>
-          <div class="ratings-item">
-            <div class='ratings-header'>
-              Rating
-            </div>
-            <span matBadge='{{movie.voteAverage}}' class='badge' matBadgeSize='large' matBadgeOverlap="false"></span>
-          </div>
-          <div class='ratings-item'>
-            <div class='ratings-header'>
-                Votes
+<div class='list-wrapper' *ngFor='let movie of movies'>
+  <div class="list-container" *ngIf='movie.poster'>
+    <mat-list>
+      <mat-list-item>
+      <h4>{{movie.title | uppercase}}</h4> <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
+      </mat-list-item>
+    <!-- <mat-list-item> -->
+      <div class='poster-container'>
+        <div class='poster-wrapper'>
+          <img src='{{movie.poster}}' />
+        </div>
+        <div class='description-container'>
+          <div class='ratings-wrapper'>
+            <div class="ratings-item">
+              <div class='ratings-header'>
+                Rating
               </div>
-              <span matBadge='{{movie.popularity}}' class='badge-votes'  matBadgeSize='large' matBadgeOverlap="false" matBadgeColor="accent"></span>
+              <span matBadge='{{movie.voteAverage}}' class='badge' matBadgeSize='large' matBadgeOverlap="false"></span>
+            </div>
+            <div class='ratings-item'>
+              <div class='ratings-header'>
+                  Votes
+                </div>
+                <span matBadge='{{movie.popularity}}' class='badge-votes'  matBadgeSize='large' matBadgeOverlap="false" matBadgeColor="accent"></span>
+            </div>
+          </div>
+          <div class='description-wrapper'>
+              <p>{{movie.shortDescription}}</p>
           </div>
         </div>
-        <div class='description-wrapper'>
-            <p>{{movie.shortDescription}}</p>
+      </div>
+    <!-- </mat-list-item> -->
+      <mat-list-item>
+      <div>
+        <div class='info'>
+          <div class='square'>
+          </div>
+          <span class='info-title'>MOVIE INFO</span>
         </div>
       </div>
-    </div>
-    <div>
-      <div class='info'>
-        <div class='square'>
+      </mat-list-item>
+      <mat-list-item class='flex-line'>
+        <p>{{movie.longDescription}}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>{{movie.genres}}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>group</mat-icon>
+        <p>{{movie.cast}}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>Director: {{movie.directors}}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>{{movie.shortDescription}}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>{{movie.runTime | duration}}</p>
+      </mat-list-item>
+    </mat-list>
+    <mat-list *ngFor='let theater of movie.theaters'>
+      <mat-list-item>
+          <mat-icon mat-list-icon>theaters</mat-icon>
+                <h4 mat-line>{{theater.name}}</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="box">
+          <span class='time' *ngFor="let time of theater.times">
+            <h4 mat-line>{{time | date: 'shortTime'}}</h4>
+          </span>
         </div>
-        <span>MOVIE INFO</span>
-      </div>
-
+      </mat-list-item>
+    </mat-list>
     </div>
-    <mat-list-item>
-      <p>{{movie.genres}}</p>
-    </mat-list-item>
-    <mat-list-item>
-      <mat-icon mat-list-icon>group</mat-icon>
-      <p>{{movie.cast}}</p>
-    </mat-list-item>
-    <mat-list-item>
-      <p>Director: {{movie.directors}}</p>
-    </mat-list-item>
-    <mat-list-item>
-      <p>{{movie.shortDescription}}</p>
-    </mat-list-item>
-    <mat-list-item>
-      <p>{{movie.runTime | duration}}</p>
-    </mat-list-item>
-  </mat-list>
-  <mat-list *ngFor='let theater of movie.theaters'>
-    <mat-list-item>
-        <mat-icon mat-list-icon>theaters</mat-icon>
-              <h4 mat-line>{{theater.name}}</h4>
-    </mat-list-item>
-    <mat-list-item>
-      <div class="box">
-        <span class='time' *ngFor="let time of theater.times">
-          <h4 mat-line>{{time | date: 'shortTime'}}</h4>
-        </span>
-      </div>
-    </mat-list-item>
-  </mat-list>
   </div>
