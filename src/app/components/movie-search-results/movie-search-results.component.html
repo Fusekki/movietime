@@ -3,9 +3,9 @@
   <div class="list-container" *ngIf='movie.poster'>
     <mat-list>
       <mat-list-item>
-      <h4>{{movie.title | uppercase}}</h4> <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
+        <h4>{{movie.title | uppercase}}</h4>
+        <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
       </mat-list-item>
-    <!-- <mat-list-item> -->
       <div class='poster-container'>
         <div class='poster-wrapper'>
           <img src='{{movie.poster}}' />
@@ -20,25 +20,24 @@
             </div>
             <div class='ratings-item'>
               <div class='ratings-header'>
-                  Votes
-                </div>
-                <span matBadge='{{movie.popularity}}' class='badge-votes'  matBadgeSize='large' matBadgeOverlap="false" matBadgeColor="accent"></span>
+                Votes
+              </div>
+              <span matBadge='{{movie.popularity}}' class='badge-votes' matBadgeSize='large' matBadgeOverlap="false" matBadgeColor="accent"></span>
             </div>
           </div>
           <div class='description-wrapper'>
-              <p>{{movie.shortDescription}}</p>
+            <p>{{movie.shortDescription}}</p>
           </div>
         </div>
       </div>
-    <!-- </mat-list-item> -->
       <mat-list-item>
-      <div>
-        <div class='info'>
-          <div class='square'>
+        <div>
+          <div class='info'>
+            <div class='square'>
+            </div>
+            <span class='info-title'>MOVIE INFO</span>
           </div>
-          <span class='info-title'>MOVIE INFO</span>
         </div>
-      </div>
       </mat-list-item>
       <mat-list-item class='flex-line'>
         <p>{{movie.longDescription}}</p>
@@ -62,8 +61,8 @@
     </mat-list>
     <mat-list *ngFor='let theater of movie.theaters'>
       <mat-list-item>
-          <mat-icon mat-list-icon>theaters</mat-icon>
-                <h4 mat-line>{{theater.name}}</h4>
+        <mat-icon mat-list-icon>theaters</mat-icon>
+        <h4 mat-line>{{theater.name}}</h4>
       </mat-list-item>
       <mat-list-item>
         <div class="box">
@@ -73,5 +72,5 @@
         </div>
       </mat-list-item>
     </mat-list>
-    </div>
   </div>
+</div>
