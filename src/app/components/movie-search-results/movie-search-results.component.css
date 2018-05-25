@@ -67,7 +67,18 @@
 .info {
   display: flex;
   font-weight: bold;
-  margin: 10px 0 0 1em;
+  margin-top: 10px;
+}
+
+
+.info-title {
+  font-size: 18px;
+
+}
+
+.flex-line {
+  display: flex;
+  height: auto !important;
 }
 
 .square {
