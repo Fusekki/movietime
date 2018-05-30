@@ -35,53 +35,9 @@
           <div class='info'>
             <div class='square'>
             </div>
-            <span class='info-title'>MOVIE INFO</span>
+            <span class='info-title'>TICKETS & SHOWTIMES</span>
           </div>
         </div>
-      </mat-list-item>
-      <mat-list-item class='flex-line'>
-        {{movie.longDescription}}
-      </mat-list-item>
-      <mat-list-item class='short'>
-        <span class='field'>Rating:</span>{{movie.rated}}
-      </mat-list-item>
-      <mat-list-item class='short'>
-          <ul class='genres field'>Genre:
-          <li *ngFor='let genre of movie.genres'>{{genre}}</li>
-        </ul>
-      </mat-list-item>
-      <mat-list-item class='short'>
-       <span class='field'>Directed by:</span>{{movie.directors}}
-      </mat-list-item>
-      <mat-list-item class='short'>
-        <span class='field'>In Theatres:</span>{{movie.releaseDate | date: 'mediumDate'}}
-      </mat-list-item>
-      <mat-list-item class='short'>
-          <span class='field'>Runtime:</span>{{movie.runTime | duration}}
-      </mat-list-item>
-      <mat-list-item>
-        <div>
-            <div class='info'>
-              <div class='square'>
-              </div>
-              <span class='info-title'>CAST</span>
-            </div>
-          </div>
-      </mat-list-item>
-      <!-- <mat-list-item> -->
-          <ul class='cast'>
-          <li *ngFor='let actor of movie.cast'>
-            {{actor}}
-          </li>
-        </ul>
-        <!-- <mat-icon mat-list-icon>group</mat-icon>
-        {{movie.cast}} -->
-      <!-- </mat-list-item> -->
-      <mat-list-item>
-        {{movie.shortDescription}}
-      </mat-list-item>
-      <mat-list-item>
-        {{movie.runTime | duration}}
       </mat-list-item>
     </mat-list>
     <mat-list *ngFor='let theater of movie.theaters'>
@@ -96,6 +52,52 @@
           </span>
         </div>
       </mat-list-item>
+    </mat-list>
+    <mat-list>
+      <mat-list-item>
+        <div>
+          <div class='info'>
+            <div class='square'>
+            </div>
+            <span class='info-title'>MOVIE INFO</span>
+          </div>
+        </div>
+      </mat-list-item>
+      <mat-list-item class='flex-line'>
+        {{movie.longDescription}}
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <span class='field'>Rating:</span>{{movie.rated}}
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <ul class='genres field'>Genre:
+          <li *ngFor='let genre of movie.genres'>{{genre}}</li>
+        </ul>
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <span class='field'>Directed by:</span>{{movie.directors}}
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <span class='field'>In Theatres:</span>{{movie.releaseDate | date: 'mediumDate'}}
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <span class='field'>Runtime:</span>{{movie.runTime | duration}}
+      </mat-list-item>
+      <mat-list-item>
+        <div>
+          <div class='info'>
+            <div class='square'>
+            </div>
+            <span class='info-title'>CAST</span>
+          </div>
+        </div>
+      </mat-list-item>
+      <ul class='cast'>
+        <li *ngFor='let actor of movie.cast'>
+          {{actor}}
+        </li>
+      </ul>
+      <mat-list-item></mat-list-item>
     </mat-list>
   </div>
 </div>
