@@ -40,22 +40,25 @@
         </div>
       </mat-list-item>
       <mat-list-item class='flex-line'>
-      {{movie.longDescription}}
+        {{movie.longDescription}}
       </mat-list-item>
-      <mat-list-item>
-        <span class='field'>Rating: </span>{{movie.rated}}
+      <mat-list-item class='short'>
+        <span class='field'>Rating:</span>{{movie.rated}}
       </mat-list-item>
-      <mat-list-item>
-        <ul class='genres field'>Genre:
+      <mat-list-item class='short'>
+          <ul class='genres field'>Genre:
           <li *ngFor='let genre of movie.genres'>{{genre}}</li>
         </ul>
+      </mat-list-item>
+      <mat-list-item class='short'>
+       <span class='field'>Directed by:</span>{{movie.directors}}
+      </mat-list-item>
+      <mat-list-item class='short'>
+        <span class='field'>In Theatres:</span>{{movie.releaseDate | date: 'mediumDate'}}
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>group</mat-icon>
         {{movie.cast}}
-      </mat-list-item>
-      <mat-list-item>
-        Director: {{movie.directors}}
       </mat-list-item>
       <mat-list-item>
         {{movie.shortDescription}}
