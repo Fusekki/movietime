@@ -43,10 +43,12 @@
       {{movie.longDescription}}
       </mat-list-item>
       <mat-list-item>
-        Rated: {{movie.rated}}
+        <span class='field'>Rating: </span>{{movie.rated}}
       </mat-list-item>
       <mat-list-item>
-        {{movie.genres}}
+        <ul class='genres field'>Genre:
+          <li *ngFor='let genre of movie.genres'>{{genre}}</li>
+        </ul>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>group</mat-icon>
