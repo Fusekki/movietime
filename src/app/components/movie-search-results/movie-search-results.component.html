@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class='description-wrapper'>
-            <p>{{movie.shortDescription}}</p>
+            {{movie.shortDescription}}
           </div>
         </div>
       </div>
@@ -40,26 +40,26 @@
         </div>
       </mat-list-item>
       <mat-list-item class='flex-line'>
-        <p>{{movie.longDescription}}</p>
+      {{movie.longDescription}}
       </mat-list-item>
       <mat-list-item>
-        <p>{{movie.rated}}</p>
+        Rated: {{movie.rated}}
       </mat-list-item>
       <mat-list-item>
-        <p>{{movie.genres}}</p>
+        {{movie.genres}}
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>group</mat-icon>
-        <p>{{movie.cast}}</p>
+        {{movie.cast}}
       </mat-list-item>
       <mat-list-item>
-        <p>Director: {{movie.directors}}</p>
+        Director: {{movie.directors}}
       </mat-list-item>
       <mat-list-item>
-        <p>{{movie.shortDescription}}</p>
+        {{movie.shortDescription}}
       </mat-list-item>
       <mat-list-item>
-        <p>{{movie.runTime | duration}}</p>
+        {{movie.runTime | duration}}
       </mat-list-item>
     </mat-list>
     <mat-list *ngFor='let theater of movie.theaters'>
