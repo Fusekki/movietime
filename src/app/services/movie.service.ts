@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Showings } from '../interfaces/showings';
+import { Showings, Ratings } from '../interfaces/showings';
 import { Movie } from '../classes/movie';
 import { Theater } from '../classes/theater';
 import { Area } from '../classes/area';
@@ -31,6 +31,10 @@ export class MovieService {
     let movie = {} as Movie;
     for (let x = 0; x < showings.length; x++) {
       const showing = showings[x];
+      if (!showing.ratings) {
+        const ratings = new Ratings( '', 'N/A' );
+        showing.ratings = new Array(ratings);
+      }
       movie = new Movie(
         showing.title,
         showing.subType,
@@ -40,7 +44,7 @@ export class MovieService {
         showing.directors,
         showing.shortDescription,
         showing.longDescription,
-        showing.rated,
+        showing.ratings[0].code,
         showing.advisories,
         showing.runTime
       );
