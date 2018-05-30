@@ -89,13 +89,19 @@
 
 }
 
+.short {
+  height: 24px !important;
+  margin: 5px 0;
+}
+
+
 .field {
   color: grey;
+  margin-right: 5px;
 }
 
 .genres {
   list-style: none;
-  /* margin: 0; */
   padding: 0;
 }
 
