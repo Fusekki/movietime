@@ -56,6 +56,18 @@
       <mat-list-item class='short'>
         <span class='field'>In Theatres:</span>{{movie.releaseDate | date: 'mediumDate'}}
       </mat-list-item>
+      <mat-list-item class='short'>
+          <span class='field'>Runtime:</span>{{movie.runTime | duration}}
+      </mat-list-item>
+      <mat-list-item>
+        <div>
+            <div class='info'>
+              <div class='square'>
+              </div>
+              <span class='info-title'>CAST</span>
+            </div>
+          </div>
+      </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>group</mat-icon>
         {{movie.cast}}
