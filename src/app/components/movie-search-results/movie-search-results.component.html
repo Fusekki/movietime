@@ -36,8 +36,13 @@
             <div class='square'>
             </div>
             <span class='info-title'>TICKETS & SHOWTIMES</span>
+
           </div>
         </div>
+
+      </mat-list-item>
+      <mat-list-item>
+        <span>Showtimes for <span class='bold'>today</span> near <span class='bold'> {{zipcode}}</span></span>
       </mat-list-item>
     </mat-list>
     <mat-list *ngFor='let theater of movie.theaters'>
