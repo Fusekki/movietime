@@ -68,10 +68,15 @@
             </div>
           </div>
       </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>group</mat-icon>
-        {{movie.cast}}
-      </mat-list-item>
+      <!-- <mat-list-item> -->
+          <ul class='cast'>
+          <li *ngFor='let actor of movie.cast'>
+            {{actor}}
+          </li>
+        </ul>
+        <!-- <mat-icon mat-list-icon>group</mat-icon>
+        {{movie.cast}} -->
+      <!-- </mat-list-item> -->
       <mat-list-item>
         {{movie.shortDescription}}
       </mat-list-item>
