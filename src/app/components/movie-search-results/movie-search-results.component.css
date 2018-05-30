@@ -89,6 +89,10 @@
 
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .short {
   height: 24px !important;
   margin: 5px 0;
