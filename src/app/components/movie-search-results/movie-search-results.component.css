@@ -132,3 +132,17 @@
   height: 40px;
 }
 
+.yellow-box {
+  background: yellow;
+  border-radius: 5px;
+  color: black;
+  font-size: 13px;
+  font-weight: bold;
+  min-width: 85px;
+  padding: 7px 15px;
+  text-align: center;
+}
+
+.no-left-padding {
+  margin-left: -16px !important;
+}
