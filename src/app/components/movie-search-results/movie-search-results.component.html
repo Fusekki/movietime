@@ -36,24 +36,22 @@
             <div class='square'>
             </div>
             <span class='info-title'>TICKETS & SHOWTIMES</span>
-
           </div>
         </div>
-
       </mat-list-item>
       <mat-list-item>
         <span>Showtimes for <span class='bold'>today</span> near <span class='bold'> {{zipcode}}</span></span>
       </mat-list-item>
     </mat-list>
     <mat-list *ngFor='let theater of movie.theaters'>
-      <mat-list-item>
+      <mat-list-item class='short'>
         <mat-icon mat-list-icon>theaters</mat-icon>
-        <h4 mat-line>{{theater.name}}</h4>
+        <h4 mat-line class='no-left-padding'>{{theater.name}}</h4>
       </mat-list-item>
       <mat-list-item>
         <div class="box">
           <span class='time' *ngFor="let time of theater.times">
-            <h4 mat-line>{{time | date: 'shortTime'}}</h4>
+            <div mat-line class='yellow-box'>{{time | date: 'shortTime'}}</div>
           </span>
         </div>
       </mat-list-item>
