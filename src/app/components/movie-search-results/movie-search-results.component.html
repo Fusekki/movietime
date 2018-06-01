@@ -96,11 +96,12 @@
         </div>
       </mat-list-item>
       <ul class='cast'>
-        <li *ngFor='let actor of movie.cast'>
-          {{actor.name}}
+        <li class='box cast-member' *ngFor='let actor of movie.cast'>
+          <img class='actor-img' src='{{actor.profile}}' />
+          <div class='actor-name'>{{actor.name}}</div>
         </li>
       </ul>
-      <mat-list-item></mat-list-item>
+      <mat-list-item class='no-height'></mat-list-item>
     </mat-list>
   </div>
 </div>
