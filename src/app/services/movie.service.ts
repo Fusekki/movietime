@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Showings, Ratings } from '../interfaces/showings';
+import { Cast } from '../classes/cast';
 import { Movie } from '../classes/movie';
 import { Theater } from '../classes/theater';
 import { Area } from '../classes/area';
@@ -27,7 +28,6 @@ export class MovieService {
   parseMovies(showings) {
     // console.log(data);
     this.movies = [];
-    // let theaters = [];
     let movie = {} as Movie;
     for (let x = 0; x < showings.length; x++) {
       const showing = showings[x];
@@ -40,7 +40,6 @@ export class MovieService {
         showing.subType,
         showing.releaseDate,
         showing.genres,
-        showing.topCast,
         showing.directors,
         showing.shortDescription,
         showing.longDescription,
@@ -58,6 +57,14 @@ export class MovieService {
             name: showtime.theatre.name,
             times: [showtime.dateTime]
           });
+        }
+      }
+      if (showing.topCast) {
+          for (const actor of showing.topCast) {
+            movie.cast.push({
+              name: actor,
+              profile: ''
+            });
         }
       }
       this.movies.push(movie);
