@@ -79,7 +79,11 @@ export class MovieSearchResultsComponent implements OnInit {
           this.getPeople(this.movies[x].cast[y].name)
           .subscribe((people: People) => {
             const ppl = people.results[0];
-            this.movies[x].cast[y].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
+            if (ppl.profile_path) {
+                this.movies[x].cast[y].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
+            } else {
+              this.movies[x].cast[y].profile = 'assets/no-image-sm.jpg';
+            }
           });
         }
 
