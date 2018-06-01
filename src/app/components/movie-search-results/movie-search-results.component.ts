@@ -74,11 +74,14 @@ export class MovieSearchResultsComponent implements OnInit {
             this.movies[x].popularity = 'N/A';
           }
         });
-        this.getPeople(this.movies[x])
-        .subscribe((people: People) => {
-          const ppl = people.results;
-          console.log(ppl);
-        });
+        for (const person of this.movies[x].cast) {
+          this.getPeople(person.name)
+          .subscribe((people: People) => {
+            const ppl = people.results;
+            console.log(ppl[0].name);
+          });
+        }
+
       }
     });
   }
@@ -110,9 +113,7 @@ export class MovieSearchResultsComponent implements OnInit {
     return this.moviedbService.getMoviePosters(movie.title, year);
   }
 
-  getPeople(movie) {
-    for (const person of movie.cast) {
-      return this.moviedbService.getPeople(person);
-    }
+  getPeople(name) {
+    return this.moviedbService.getPeople(name);
   }
 }
