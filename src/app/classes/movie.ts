@@ -1,4 +1,5 @@
 import { Theater } from './theater';
+import { Cast } from './cast';
 
 // current = new Movie(movie.title, movie.releaseDate,
 //   movie.genres, movie.cast, movies.directors,
@@ -6,12 +7,12 @@ import { Theater } from './theater';
 //   movie.ranTime);
 
 export class Movie {
-    constructor(t, st, rd, g, c, d, sd, ld, r, ad, rt)  {
+    constructor(t, st, rd, g, d, sd, ld, r, ad, rt)  {
         this.title = t;
         this.subType = st;
         this.releaseDate = rd;
         this.genres = g;
-        this.cast = c;
+        this.cast = [];
         this.directors = d;
         this.shortDescription = sd;
         this.longDescription = ld;
@@ -27,7 +28,7 @@ export class Movie {
     subType: string;
     releaseDate: string;
     genres: string[];
-    cast: string[];
+    cast: Cast[];
     directors: string[];
     shortDescription: string;
     longDescription: string;
