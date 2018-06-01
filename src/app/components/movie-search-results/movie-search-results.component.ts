@@ -22,6 +22,7 @@ import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
 import { Movie } from '../../classes/movie';
 import { Showings } from '../../interfaces/showings';
+import { People } from '../../interfaces/people';
 import { Posters } from '../../interfaces/posters';
 
 
@@ -73,6 +74,11 @@ export class MovieSearchResultsComponent implements OnInit {
             this.movies[x].popularity = 'N/A';
           }
         });
+        this.getPeople(this.movies[x])
+        .subscribe((people: People) => {
+          const ppl = people.results;
+          console.log(ppl);
+        });
       }
     });
   }
@@ -102,5 +108,11 @@ export class MovieSearchResultsComponent implements OnInit {
     const year = movie.releaseDate.slice(0, 4);
     // return this.moviedbService.getMoviePosters(movie.title, year).pipe(map((data => this.data = data)));
     return this.moviedbService.getMoviePosters(movie.title, year);
+  }
+
+  getPeople(movie) {
+    for (const person of movie.cast) {
+      return this.moviedbService.getPeople(person);
+    }
   }
 }
