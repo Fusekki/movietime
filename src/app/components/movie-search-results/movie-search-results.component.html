@@ -86,7 +86,7 @@
       <mat-list-item class='short'>
         <span class='field'>Runtime:</span>{{movie.runTime | duration}}
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item *ngIf='movie.cast.length'>
         <div>
           <div class='info'>
             <div class='square'>
