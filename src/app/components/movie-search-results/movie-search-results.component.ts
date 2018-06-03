@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +24,8 @@ import { Movie } from '../../classes/movie';
 import { Showings } from '../../interfaces/showings';
 import { People } from '../../interfaces/people';
 import { Posters } from '../../interfaces/posters';
+import { Videos } from '../../interfaces/videos';
+
 
 
 @Component({
@@ -61,6 +63,7 @@ export class MovieSearchResultsComponent implements OnInit {
       this.movies = this.parseMovies(data);
       for (let x = 0; x < this.movies.length; x++) {
         this.getMoviePosters(this.movies[x])
+        // .pipe(mergeMap((poster: Posters) => this.getVideos(poster.results[0].id)))
         .subscribe((poster: Posters) => {
           // console.log(poster);
           const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
@@ -73,9 +76,19 @@ export class MovieSearchResultsComponent implements OnInit {
             this.movies[x].voteAverage = 'N/A';
             this.movies[x].popularity = 'N/A';
           }
+          if (poster.results[0] !== undefined) {
+            this.getVideos(poster.results[0].id)
+            .subscribe((videos: Videos) => {
+              for (const video of videos.results) {
+                // console.log(video);
+                // console.log(this.movies[x]);
+                this.movies[x].videos.push(video);
+              }
+            });
+          }
         });
         for (let y = 0; y < this.movies[x].cast.length; y++) {
-          console.log(this.movies[x].title);
+          // console.log(this.movies[x].title);
           this.getPeople(this.movies[x].cast[y].name)
           .subscribe((people: People) => {
             const ppl = people.results[0];
@@ -119,5 +132,10 @@ export class MovieSearchResultsComponent implements OnInit {
 
   getPeople(name) {
     return this.moviedbService.getPeople(name);
+  }
+
+  getVideos(id) {
+    return this.moviedbService.getVideos(id);
+
   }
 }
