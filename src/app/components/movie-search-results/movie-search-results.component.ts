@@ -42,6 +42,11 @@ export class MovieSearchResultsComponent implements OnInit {
   movies: Movie[];
   posters: Posters[] = [];
 
+  id = 'qDuKsiwS5xw';
+
+  private player;
+  private ytEvent;
+
   constructor(
     private apiService: ApiService,
     private areaService: AreaService,
@@ -63,7 +68,6 @@ export class MovieSearchResultsComponent implements OnInit {
       this.movies = this.parseMovies(data);
       for (let x = 0; x < this.movies.length; x++) {
         this.getMoviePosters(this.movies[x])
-        // .pipe(mergeMap((poster: Posters) => this.getVideos(poster.results[0].id)))
         .subscribe((poster: Posters) => {
           // console.log(poster);
           const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
@@ -88,7 +92,6 @@ export class MovieSearchResultsComponent implements OnInit {
           }
         });
         for (let y = 0; y < this.movies[x].cast.length; y++) {
-          // console.log(this.movies[x].title);
           this.getPeople(this.movies[x].cast[y].name)
           .subscribe((people: People) => {
             const ppl = people.results[0];
@@ -99,7 +102,6 @@ export class MovieSearchResultsComponent implements OnInit {
             }
           });
         }
-
       }
     });
   }
@@ -118,7 +120,6 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   getMovies() {
-
     return this.apiService.getMovies();
   }
   parseMovies(data) {
