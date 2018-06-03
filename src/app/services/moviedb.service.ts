@@ -46,13 +46,7 @@ export class MoviedbService {
       );
     }
 
-    /** GET Useres from the server */
-    getMovies(): Observable<string[]> {
-      return this.http.get<string[]>(this.moviesUrl)
-      .pipe(
-        tap(data => this.log(`Movie data received`))
-      );
-    }
+
 
     // Logs the content to the reportService
     private log(content: string) {
