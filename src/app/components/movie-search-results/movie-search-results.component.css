@@ -12,10 +12,10 @@
 .date {
   margin-left: 10px;
 }
-
+/*
 .time {
   padding: 5px;
-}
+} */
 
 .mat-list {
   background: lightgray;
@@ -127,7 +127,7 @@
   margin: 10px 0 20px 0 !important;
 }
 
-.yellow-box {
+/* .yellow-box {
   background: yellow;
   border-radius: 5px;
   color: black;
@@ -136,11 +136,11 @@
   min-width: 87px;
   padding: 7px 15px;
   text-align: center;
-}
+} */
 
-.theater-name {
+/* .theater-name {
   margin-left: -16px !important;
-}
+} */
 
 .cast-member {
   font-weight: bold;
