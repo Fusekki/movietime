@@ -20,15 +20,32 @@ export class MoviedbService {
 
     private apiKey = 'aeadd6ead4ce89db28f122189aaa9ed7';
     // private moviesUrl = 'api/moviedb';  // URL to web api
+    // private moviesUrl = 'https://api.themoviedb.org/3/';
     private moviesUrl = 'https://api.themoviedb.org/3/';
+    private keyword = 'search/';
+    private category = '%%data%%';
+    private key = '?api_key=%%data%%';
+    private language = '&language=en-US';
+    private query = '&query=%%data%%';
+    private page = '&page=%%data%%';
+    private adult = '&include_adult=false';
+    private additional = '%%data%%';
+
+
     // Save this for when we go live
 
     getMoviePosters(movieName, releaseDate): Observable<Posters> {
       // Remove the 3D from the end of title and replace the whitespaces
       movieName = movieName.replace(/[3][D]/g, '').replace(/\s/g, '%20');
-      const url = this.moviesUrl + 'search/movie?api_key=' + this.apiKey + '&language=en-US&query=' + movieName
-       + '&page=1&include_adult=false&primary_release_year=' + releaseDate;
-      // console.log(url);
+
+      const category = this.category.replace('%%data%%', 'movie');
+      const key = this.key.replace('%%data%%', this.apiKey);
+      const query = this.query.replace('%%data%%', movieName);
+      const page = this.page.replace('%%data%%', '1');
+      const additional = this.additional.replace('%%data%%', '&primary_release_year=' + releaseDate);
+
+      const url = this.moviesUrl + this.keyword + category + key + this.language + query + page + this.adult + additional;
+
       return this.http.get<Posters>(url)
       .pipe(
         tap(data => this.log('MovieDB poster received'))
@@ -38,9 +55,14 @@ export class MoviedbService {
     getPeople(person): Observable<People> {
       // Remove the 3D from the end of title and replace the whitespaces
       person = person.replace(/\s/g, '%20');
-      const url = this.moviesUrl + 'search/person?api_key=' + this.apiKey + '&language=en-US&query=' + person
-       + '&page=1&include_adult=false';
-      // console.log(url);
+
+      const category = this.category.replace('%%data%%', 'person');
+      const key = this.key.replace('%%data%%', this.apiKey);
+      const query = this.query.replace('%%data%%', person);
+      const page = this.page.replace('%%data%%', '1');
+
+      const url = this.moviesUrl + this.keyword + category + key + this.language + query + page + this.adult;
+
       return this.http.get<People>(url)
       .pipe(
         tap(data => this.log('MovieDB person received'))
@@ -48,13 +70,18 @@ export class MoviedbService {
     }
 
     getVideos(id): Observable<Videos> {
-      const url = this.moviesUrl + 'movie/' + id + '/videos?api_key=' + this.apiKey + '&language=en-US';
+      const category = this.category.replace('%%data%%', 'movie/');
+      const key = this.key.replace('%%data%%', this.apiKey);
+      const additional = this.additional.replace('%%data%%', '/videos');
+      const page = this.page.replace('%%data%%', '1');
+
+      const url = this.moviesUrl + category + id + additional + key + this.language;
+
       return this.http.get<Videos>(url)
       .pipe(
         tap(data => this.log('MovieDB person received'))
       );
     }
-
 
 
     // Logs the content to the reportService
