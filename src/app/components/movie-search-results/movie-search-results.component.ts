@@ -81,14 +81,15 @@ export class MovieSearchResultsComponent implements OnInit {
             this.movies[x].popularity = 'N/A';
           }
           if (poster.results[0] !== undefined) {
-            this.getVideos(poster.results[0].id)
-            .subscribe((videos: Videos) => {
-              for (const video of videos.results) {
-                // console.log(video);
-                // console.log(this.movies[x]);
-                this.movies[x].videos.push(video);
-              }
-            });
+            this.movies[x].id = poster.results[0].id;
+            // this.getVideos(poster.results[0].id)
+            // .subscribe((videos: Videos) => {
+            //   for (const video of videos.results) {
+            //     // console.log(video);
+            //     // console.log(this.movies[x]);
+            //     this.movies[x].videos.push(video);
+            //   }
+            // });
           }
         });
         for (let y = 0; y < this.movies[x].cast.length; y++) {
