@@ -1,10 +1,23 @@
-import { Theater } from './theater';
-import { Cast } from './cast';
+class Cast {
+  name: string;
+  profile: string;
+}
 
-// current = new Movie(movie.title, movie.releaseDate,
-//   movie.genres, movie.cast, movies.directors,
-//    movie.shortDescription, movie.rated, movie.advisories,
-//   movie.ranTime);
+ class Theater {
+  name: string;
+  times: string[];
+}
+
+class Video {
+  id: number;
+  iso_639_1: string;
+  iso_3166_1: string;
+  key: string;
+  name: string;
+  site: string;
+  size: number;
+  type: string;
+}
 
 export class Movie {
     constructor(t, st, rd, g, d, sd, ld, r, ad, rt)  {
@@ -23,6 +36,7 @@ export class Movie {
         this.poster = null;
         this.voteAverage = null;
         this.popularity = null;
+        this.videos = [];
      }
     title: string;
     subType: string;
@@ -39,4 +53,5 @@ export class Movie {
     poster: string;
     voteAverage: string;
     popularity: string;
+    videos: Video[];
 }

@@ -101,6 +101,22 @@
           <div class='actor-name'>{{actor.name}}</div>
         </li>
       </ul>
+      <mat-list-item *ngIf='movie.videos.length'>
+        <div>
+          <div class='info'>
+            <div class='square'>
+            </div>
+            <span class='info-title'>VIDEOS</span>
+          </div>
+        </div>
+      </mat-list-item>
+      <div class="video-container" *ngIf='movie.videos.length'>
+        <app-youtube-player
+          [videoId] = 'movie.videos[0].key'
+          [height] = '240'
+          [width] = '320'>
+        </app-youtube-player>
+        </div>
       <mat-list-item class='no-height'></mat-list-item>
     </mat-list>
   </div>

@@ -15,6 +15,9 @@ import {MatListModule} from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+
+import { YoutubePlayerModule } from 'ngx-youtube-player';
+
 import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user.service';
 import { AreaService } from './services/area.service';
@@ -32,6 +35,7 @@ import { InMemoryDataService } from './classes/in-memory-data.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ReportComponent } from './components/report/report.component';
 import { MovieSearchResultsComponent } from './components/movie-search-results/movie-search-results.component';
+import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 
 
 @NgModule({
@@ -42,7 +46,8 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
     PageNotFoundComponent,
     DashboardComponent,
     ReportComponent,
-    MovieSearchResultsComponent
+    MovieSearchResultsComponent,
+    YoutubePlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
     MatIconModule,
     MatInputModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    YoutubePlayerModule
   ],
   exports: [
     BrowserAnimationsModule,

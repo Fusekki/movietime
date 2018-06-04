@@ -160,3 +160,7 @@
 .no-height {
   height: 0 !important;
 }
+
+.video-container {
+  text-align: center;
+}
