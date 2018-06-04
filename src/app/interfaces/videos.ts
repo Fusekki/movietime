@@ -1,4 +1,4 @@
-class Video {
+export class Video {
   id: number;
   iso_639_1: string;
   iso_3166_1: string;
