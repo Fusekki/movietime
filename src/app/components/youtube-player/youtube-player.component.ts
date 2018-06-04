@@ -25,10 +25,10 @@ export class YoutubePlayerComponent {
 
   savePlayer(player) {
     this.player = player;
-    console.log('player instance', player);
+    // console.log('player instance', player);
   }
 
   onStateChange(event) {
-    console.log('player state', event.data);
+    // console.log('player state', event.data);
   }
 }
