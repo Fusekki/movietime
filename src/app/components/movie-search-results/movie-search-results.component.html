@@ -6,30 +6,7 @@
         <h4>{{movie.title | uppercase}}</h4>
         <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
       </mat-list-item>
-      <div class='poster-container'>
-        <div class='poster-wrapper'>
-          <img src='{{movie.poster}}' />
-        </div>
-        <div class='description-container'>
-          <div class='ratings-wrapper'>
-            <div class="ratings-item">
-              <div class='ratings-header'>
-                Rating
-              </div>
-              <span matBadge='{{movie.voteAverage}}' class='badge' matBadgeSize='large' matBadgeOverlap="false"></span>
-            </div>
-            <div class='ratings-item'>
-              <div class='ratings-header'>
-                Votes
-              </div>
-              <span matBadge='{{movie.popularity}}' class='badge-votes' matBadgeSize='large' matBadgeOverlap="false" matBadgeColor="accent"></span>
-            </div>
-          </div>
-          <div class='description-wrapper'>
-            {{movie.shortDescription}}
-          </div>
-        </div>
-      </div>
+      <app-movie-poster [movie]='movie'></app-movie-poster>
       <mat-list-item>
         <div>
           <div class='info'>
