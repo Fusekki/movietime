@@ -4,9 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Showings, Ratings } from '../interfaces/showings';
-import { Cast } from '../classes/cast';
+// import { Cast } from '../classes/cast';
 import { Movie } from '../classes/movie';
-import { Theater } from '../classes/theater';
+// import { Theater } from '../classes/theater';
 import { Area } from '../classes/area';
 import { ReportService } from './report.service';
 
