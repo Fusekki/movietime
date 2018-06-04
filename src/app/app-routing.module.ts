@@ -5,10 +5,13 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MovieSearchResultsComponent } from './components/movie-search-results/movie-search-results.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MovieVideosComponent } from './components/movie-videos/movie-videos.component';
+
 
 const routes: Routes = [
   { path: ':user/profile', component: DashboardComponent },
   { path: ':user/movies/:zipcode', component: MovieSearchResultsComponent },
+  { path: ':user/movies/:video/videos', component: MovieVideosComponent },
   // These defaults need to be last
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
