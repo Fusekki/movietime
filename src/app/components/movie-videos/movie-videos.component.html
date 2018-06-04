@@ -1,0 +1,17 @@
+<div>
+    <div class='info'>
+      <div class='square'>
+      </div>
+      <span class='info-title'>VIDEOS</span>
+    </div>
+</div>
+<div class="video-container" *ngIf='videos.length'>
+  <div class='video-wrapper' *ngFor='let video of videos'>
+    <h3>{{video.name}}</h3>
+    <app-youtube-player
+      [videoId] = 'video.key'
+      [height] = '240'
+      [width] = '320'>
+    </app-youtube-player>
+  </div>
+</div>
