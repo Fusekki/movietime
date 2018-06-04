@@ -38,6 +38,7 @@ import { MovieSearchResultsComponent } from './components/movie-search-results/m
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 import { MovieVideosComponent } from './components/movie-videos/movie-videos.component';
 import { TheatreTimesComponent } from './components/theatre-times/theatre-times.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { TheatreTimesComponent } from './components/theatre-times/theatre-times.
     MovieSearchResultsComponent,
     YoutubePlayerComponent,
     MovieVideosComponent,
-    TheatreTimesComponent
+    TheatreTimesComponent,
+    MovieInfoComponent
   ],
   imports: [
     BrowserModule,
