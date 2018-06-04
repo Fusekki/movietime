@@ -26,8 +26,6 @@ export class MovieVideosComponent implements OnInit {
     this.getVideos(this.id)
     .subscribe((videos: Videos) => {
       for (const video of videos.results) {
-        console.log(video);
-        // console.log(this.movies[x]);
         this.videos.push(video);
       }
     });
@@ -35,11 +33,9 @@ export class MovieVideosComponent implements OnInit {
 
   getVideoId(): void {
     this.id = +this.route.snapshot.paramMap.get('video');
-    console.log(this.id);
   }
 
   getVideos(id) {
-    console.log(id);
     return this.moviedbService.getVideos(id);
   }
 
