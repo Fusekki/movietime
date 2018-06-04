@@ -36,6 +36,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ReportComponent } from './components/report/report.component';
 import { MovieSearchResultsComponent } from './components/movie-search-results/movie-search-results.component';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
+import { MovieVideosComponent } from './components/movie-videos/movie-videos.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
     DashboardComponent,
     ReportComponent,
     MovieSearchResultsComponent,
-    YoutubePlayerComponent
+    YoutubePlayerComponent,
+    MovieVideosComponent
   ],
   imports: [
     BrowserModule,
