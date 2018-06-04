@@ -21,6 +21,7 @@ class Video {
 
 export class Movie {
     constructor(t, st, rd, g, d, sd, ld, r, ad, rt)  {
+        this.id = null;
         this.title = t;
         this.subType = st;
         this.releaseDate = rd;
@@ -38,6 +39,7 @@ export class Movie {
         this.popularity = null;
         this.videos = [];
      }
+    id: number;
     title: string;
     subType: string;
     releaseDate: string;
