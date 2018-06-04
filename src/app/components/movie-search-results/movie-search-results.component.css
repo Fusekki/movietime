@@ -12,10 +12,6 @@
 .date {
   margin-left: 10px;
 }
-/*
-.time {
-  padding: 5px;
-} */
 
 .mat-list {
   background: lightgray;
@@ -104,63 +100,7 @@
   margin-right: 5px;
 }
 
-.genres {
-  list-style: none;
-  padding: 0;
-}
-
-.genres li {
-  color: black;
-  display: inline;
-}
-
-.genres li:after {
-  content: ', ';
-}
-
-.genres li:last-child:after {
-  content: "";
-}
-
-.cast {
-  list-style: none;
-  margin: 10px 0 20px 0 !important;
-}
-
-/* .yellow-box {
-  background: yellow;
-  border-radius: 5px;
-  color: black;
-  font-size: 13px;
-  font-weight: bold;
-  min-width: 87px;
-  padding: 7px 15px;
-  text-align: center;
-} */
-
-/* .theater-name {
-  margin-left: -16px !important;
-} */
-
-.cast-member {
-  font-weight: bold;
-  margin-bottom: 10px
-}
-
-.actor-name {
-  margin: auto 0 auto 10px;
-  vertical-align: center;
-}
-
 .no-height {
   height: 0 !important;
 }
 
-.video-container {
-  text-align: center;
-}
-
-.link {
-  color: blue;
-  text-decoration: underline;
-}
