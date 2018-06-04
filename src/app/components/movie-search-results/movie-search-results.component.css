@@ -164,3 +164,8 @@
 .video-container {
   text-align: center;
 }
+
+.link {
+  color: blue;
+  text-decoration: underline;
+}
