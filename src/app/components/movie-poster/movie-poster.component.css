@@ -1,0 +1,42 @@
+.description-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.description-wrapper {
+  font-size: 14px;
+}
+
+>>> .mat-badge-content {
+  font-size: 13px !important;
+}
+
+.badge {
+   left: 7px;
+}
+
+.badge-votes {
+  left: 4px;
+}
+
+.poster-container {
+  display: flex;
+  margin-left: 1em;
+}
+
+.poster-wrapper {
+  margin-right: 1em;
+}
+
+.ratings-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.ratings-item {
+  margin: 0 10px;
+}
+
+.ratings-header {
+  margin-bottom: 20px;
+}
