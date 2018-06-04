@@ -43,7 +43,8 @@
         <span>Showtimes for <span class='bold'>today</span> near <span class='bold'> {{zipcode}}</span></span>
       </mat-list-item>
     </mat-list>
-    <mat-list *ngFor='let theater of movie.theaters'>
+    <app-theatre-times *ngFor='let theater of movie.theaters' [theater]='theater'></app-theatre-times>
+    <!-- <mat-list *ngFor='let theater of movie.theaters'>
       <mat-list-item class='short'>
         <mat-icon mat-list-icon>theaters</mat-icon>
         <h2 mat-line class='theater-name'>{{theater.name}}</h2>
@@ -55,7 +56,7 @@
           </span>
         </div>
       </mat-list-item>
-    </mat-list>
+    </mat-list> -->
     <mat-list>
       <mat-list-item>
         <div>
