@@ -5,6 +5,7 @@ class Cast {
 
 export class Theater {
   name: string;
+  id: string;
   times: string[];
   checked: boolean;
 }
