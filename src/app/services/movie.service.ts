@@ -25,7 +25,7 @@ export class MovieService {
   constructor(private http: HttpClient,
     private reportService: ReportService) { }
 
-  parseMovies(showings) {
+  parseMovies(showings, theaters) {
     // console.log(showings);
     this.movies = [];
     let movie = {} as Movie;
