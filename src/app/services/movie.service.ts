@@ -59,6 +59,7 @@ export class MovieService {
         } else {
           movie.theaters.push({
             name: showtime.theatre.name,
+            id: showtime.theatre.id,
             times: [showtime.dateTime],
             checked: false
           });
