@@ -26,7 +26,7 @@ export class MovieService {
     private reportService: ReportService) { }
 
   parseMovies(showings) {
-    // console.log(data);
+    // console.log(showings);
     this.movies = [];
     let movie = {} as Movie;
     for (let x = 0; x < showings.length; x++) {
@@ -34,6 +34,10 @@ export class MovieService {
       if (!showing.ratings) {
         const ratings = new Ratings( '', 'N/A' );
         showing.ratings = new Array(ratings);
+      }
+      if (showing.entityType !== 'Movie') {
+        console.log('showing is not a Movie.  Need to add check for Theatre Event.');
+        console.log(showing);
       }
       movie = new Movie(
         showing.title,
