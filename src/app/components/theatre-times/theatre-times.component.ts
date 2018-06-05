@@ -17,9 +17,24 @@ export class TheatreTimesComponent implements OnInit {
   }
 
   toggle(e, id): void {
-    console.log('toggled');
-    console.log(e);
-    console.log(id);
+    // console.log('toggled');
+    // console.log(e);
+    // console.log(id);
+    if (e.checked) {
+      this.addTheater(id);
+    } else {
+      this.removeTheater(id);
+    }
   }
+
+  addTheater(id) {
+    console.log('Adding theater ' + id);
+  }
+
+  removeTheater(id) {
+    console.log('Removing theater ' + id);
+  }
+
+
 
 }
