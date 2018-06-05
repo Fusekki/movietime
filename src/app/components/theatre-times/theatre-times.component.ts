@@ -28,11 +28,24 @@ export class TheatreTimesComponent implements OnInit {
   }
 
   addTheater(id) {
-    console.log('Adding theater ' + id);
+    if (this.user.theaters.indexOf(id)) {
+      console.log('Theater not in list.');
+      console.log('Adding theater ' + id);
+      this.user.theaters.push(id);
+    } else {
+      console.log('Already in list');
+    }
   }
 
   removeTheater(id) {
-    console.log('Removing theater ' + id);
+    const idx = this.user.theaters.indexOf(id);
+    if (id) {
+      console.log('Removing theater ' + id);
+      this.user.theaters.splice(idx, 1);
+    } else {
+      console.log('Not in list');
+    }
+
   }
 
 
