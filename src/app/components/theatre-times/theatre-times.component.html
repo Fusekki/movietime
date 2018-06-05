@@ -3,6 +3,12 @@
     <mat-icon mat-list-icon>theaters</mat-icon>
     <h2 mat-line class='theater-name'>{{theater.name}}</h2>
   </mat-list-item>
+  <div class='slide-container'>
+    <mat-slide-toggle class="example-margin" color='primary' [checked]="theater.checked">
+      Like
+    </mat-slide-toggle>
+  </div>
+
   <mat-list-item>
     <div class="box">
       <span class='time' *ngFor="let time of theater.times">
