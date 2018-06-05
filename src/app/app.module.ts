@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -73,6 +74,7 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     YoutubePlayerModule
   ],
@@ -81,7 +83,8 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
     HttpClientModule,
     MatButtonModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule
   ],
   providers: [ApiService,
     AreaService,
