@@ -3,9 +3,10 @@ class Cast {
   profile: string;
 }
 
- class Theater {
+export class Theater {
   name: string;
   times: string[];
+  checked: boolean;
 }
 
 class Video {
