@@ -12,5 +12,5 @@ export class User {
     firstName: string;
     lastName: string;
     zipcode: string;
-    theaters: number[];
+    theaters: string[];
   }
