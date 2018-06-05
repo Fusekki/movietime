@@ -52,7 +52,7 @@ export class MovieSearchResultsComponent implements OnInit {
     this.getArea();
     this.getMovies()
     .subscribe((data: Showings[]) => {
-      this.movies = this.parseMovies(data);
+      this.movies = this.parseMovies(data, this.user.theaters);
     });
   }
 
@@ -78,8 +78,8 @@ export class MovieSearchResultsComponent implements OnInit {
     return this.apiService.getMovies();
   }
 
-  parseMovies(data) {
-    return this.movieService.parseMovies(data);
+  parseMovies(data, theaters) {
+    return this.movieService.parseMovies(data, theaters);
   }
 
 }
