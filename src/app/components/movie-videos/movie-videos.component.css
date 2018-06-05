@@ -1,4 +1,14 @@
 
+.button-container {
+  background: darkslategray;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.mat-button {
+  color: white;
+  font-weight: bold;
+}
 .video-container {
   text-align: center;
 }
