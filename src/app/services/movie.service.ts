@@ -59,7 +59,8 @@ export class MovieService {
         } else {
           movie.theaters.push({
             name: showtime.theatre.name,
-            times: [showtime.dateTime]
+            times: [showtime.dateTime],
+            checked: false
           });
         }
       }
