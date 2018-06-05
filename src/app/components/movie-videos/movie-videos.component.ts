@@ -19,6 +19,7 @@ export class MovieVideosComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location,
     private moviedbService: MoviedbService) { }
 
   ngOnInit() {
@@ -37,6 +38,10 @@ export class MovieVideosComponent implements OnInit {
 
   getVideos(id) {
     return this.moviedbService.getVideos(id);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
