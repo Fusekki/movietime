@@ -61,7 +61,6 @@ export class MovieSearchResultsComponent implements OnInit {
   //   this.userService.getUser(id).subscribe(user => (this.user = user));
   // }
 
-
   // Temporary function while outside api calls are enabled
   getUser() {
     this.user = new User(0, 'janedoe@gmail.com', 'Jane', 'Doe', '06902');
