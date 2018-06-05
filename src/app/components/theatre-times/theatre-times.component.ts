@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Theater } from '../../classes/movie';
 
 @Component({
   selector: 'app-theatre-times',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./theatre-times.component.css']
 })
 export class TheatreTimesComponent implements OnInit {
-  @Input() theater: string[];
+  @Input() theater: Theater;
   constructor() { }
 
   ngOnInit() {
