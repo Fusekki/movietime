@@ -58,36 +58,37 @@ export class MovieSearchResultsComponent implements OnInit {
     this.getMovies()
     .subscribe((data: Showings[]) => {
       this.movies = this.parseMovies(data);
-      for (let x = 0; x < this.movies.length; x++) {
-        this.getMoviePosters(this.movies[x])
-        .subscribe((poster: Posters) => {
-          // console.log(poster);
-          const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
-          if (p.length) {
-            this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
-            this.movies[x].voteAverage = p[0].vote_average.toString();
-            this.movies[x].popularity = Math.trunc(p[0].popularity).toString();
-          } else {
-            this.movies[x].poster = 'assets/no-image.jpg';
-            this.movies[x].voteAverage = 'N/A';
-            this.movies[x].popularity = 'N/A';
-          }
-          if (poster.results[0] !== undefined) {
-            this.movies[x].id = poster.results[0].id;
-          }
-        });
-        for (let y = 0; y < this.movies[x].cast.length; y++) {
-          this.getPeople(this.movies[x].cast[y].name)
-          .subscribe((people: People) => {
-            const ppl = people.results[0];
-            if (ppl.profile_path) {
-                this.movies[x].cast[y].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
-            } else {
-              this.movies[x].cast[y].profile = 'assets/no-image-sm.jpg';
-            }
-          });
-        }
-      }
+      // console.log(this.movies);
+      // for (let x = 0; x < this.movies.length; x++) {
+      //   this.getMoviePosters(this.movies[x])
+      //   .subscribe((poster: Posters) => {
+      //     // console.log(poster);
+      //     const p = poster.results.filter(v => this.movies[x].title.includes(v.title));
+      //     if (p.length) {
+      //       this.movies[x].poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
+      //       this.movies[x].voteAverage = p[0].vote_average.toString();
+      //       this.movies[x].popularity = Math.trunc(p[0].popularity).toString();
+      //     } else {
+      //       this.movies[x].poster = 'assets/no-image.jpg';
+      //       this.movies[x].voteAverage = 'N/A';
+      //       this.movies[x].popularity = 'N/A';
+      //     }
+      //     if (poster.results[0] !== undefined) {
+      //       this.movies[x].id = poster.results[0].id;
+      //     }
+      //   });
+      //   for (let y = 0; y < this.movies[x].cast.length; y++) {
+      //     this.getPeople(this.movies[x].cast[y].name)
+      //     .subscribe((people: People) => {
+      //       const ppl = people.results[0];
+      //       if (ppl.profile_path) {
+      //           this.movies[x].cast[y].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
+      //       } else {
+      //         this.movies[x].cast[y].profile = 'assets/no-image-sm.jpg';
+      //       }
+      //     });
+      //   }
+      // }
     });
   }
 

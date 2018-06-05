@@ -1,6 +1,8 @@
 <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <div class='list-wrapper' *ngFor='let movie of movies'>
-  <div class="list-container" *ngIf='movie.poster'>
+  <!-- <div class="list-container" *ngIf='movie.poster'> -->
+  <div class="list-container">
+
     <mat-list>
       <mat-list-item>
         <h4>{{movie.title | uppercase}}</h4>
