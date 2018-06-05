@@ -19,7 +19,7 @@ import { MovieService } from '../../services/movie.service';
 import { UserService } from '../../services/user.service';
 import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
-import { Movie } from '../../classes/movie';
+import { Movie, Theater } from '../../classes/movie';
 import { Showings } from '../../interfaces/showings';
 
 
