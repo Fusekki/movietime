@@ -46,7 +46,6 @@ export class MovieSearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
     });
@@ -57,9 +56,15 @@ export class MovieSearchResultsComponent implements OnInit {
     });
   }
 
-  getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('user');
-    this.userService.getUser(id).subscribe(user => (this.user = user));
+  // getUser(): void {
+  //   const id = +this.route.snapshot.paramMap.get('user');
+  //   this.userService.getUser(id).subscribe(user => (this.user = user));
+  // }
+
+
+  // Temporary function while outside api calls are enabled
+  getUser() {
+    this.user = new User(0, 'janedoe@gmail.com', 'Jane', 'Doe', '06902');
   }
 
   getZipcode(): void {
