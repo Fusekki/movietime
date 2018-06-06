@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   user: User;
   zipForm: FormGroup;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;
-  newZip: number;
+  newZip: string;
 
   constructor(
     private userService: UserService,
@@ -80,7 +80,8 @@ export class DashboardComponent implements OnInit {
       email: this.user.email,
       firstName: this.user.firstName,
       lastName: this.user.lastName,
-      zipcode: this.newZip
+      zipcode: this.newZip,
+      theaters: this.user.theaters
     } as User)
       .subscribe(() => this.redirect());
   }
