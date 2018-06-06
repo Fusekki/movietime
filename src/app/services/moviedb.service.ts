@@ -71,12 +71,9 @@ export class MoviedbService {
       return this.http.get<People>(url)
       .pipe(
         retryWhen(errors =>
-          // return errors
           errors.pipe(
-            tap(error => console.log(`Error ${error.status}.`)),
-            // mergeMap((error) => (error.status === 429) ? Observable.throw(error) : Observable.toString()),
-            delay(1000),
-            take(2))
+            tap(error => console.log(`Error ${error.status}. Will retry in 10 seconds.`)),
+            delay(10000))
         ),
         tap(data => this.log('MovieDB person received'))
       );
