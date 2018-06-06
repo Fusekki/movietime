@@ -112,7 +112,6 @@ export class MoviedbService {
             delay(10000))
         ),
         tap((people: People) => {
-          console.log(movie);
           const ppl = people.results[0];
           if (ppl.profile_path) {
             movie.cast[idx].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
@@ -121,7 +120,6 @@ export class MoviedbService {
           }
 
         }),
-        tap(data => console.log(data)),
         tap(data => this.log('MovieDB person received'))
       );
 
