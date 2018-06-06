@@ -16,26 +16,12 @@ export class MoviePosterComponent implements OnInit {
 
   ngOnInit() {
     this.getMoviePosters(this.movie)
-    .subscribe((poster: Posters) => {
-      const p = poster.results.filter(v => this.movie.title.includes(v.title));
-      if (p.length) {
-        this.movie.poster = 'https://image.tmdb.org/t/p/w154/' + p[0].poster_path;
-        this.movie.voteAverage = p[0].vote_average.toString();
-        this.movie.popularity = Math.trunc(p[0].popularity).toString();
-      } else {
-        this.movie.poster = 'assets/no-image.jpg';
-        this.movie.voteAverage = 'N/A';
-        this.movie.popularity = 'N/A';
-      }
-      if (poster.results[0] !== undefined) {
-        this.movie.id = poster.results[0].id;
-      }
-    });
-
+    .subscribe();
   }
 
   getMoviePosters(movie) {
-    const year = movie.releaseDate.slice(0, 4);
-    return this.moviedbService.getMoviePosters(movie.title, year);
+    // const year = movie.releaseDate.slice(0, 4);
+    // return this.moviedbService.getMoviePosters(movie.title, year);
+    return this.moviedbService.getMoviePosters(movie);
   }
 }
