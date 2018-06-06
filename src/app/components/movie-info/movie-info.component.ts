@@ -16,20 +16,13 @@ export class MovieInfoComponent implements OnInit {
 
   ngOnInit() {
     for (let y = 0; y < this.movie.cast.length; y++) {
-      this.getPeople(this.movie.cast[y].name)
-      .subscribe((people: People) => {
-        const ppl = people.results[0];
-        if (ppl.profile_path) {
-            this.movie.cast[y].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
-        } else {
-          this.movie.cast[y].profile = 'assets/no-image-sm.jpg';
-        }
-      });
+    this.getPeople(this.movie.cast[y], this.movie, y)
+    .subscribe();
     }
   }
 
-  getPeople(name) {
-    return this.moviedbService.getPeople(name);
+  getPeople(person, movie, idx) {
+    return this.moviedbService.getPeople(person, movie, idx);
   }
 
 }

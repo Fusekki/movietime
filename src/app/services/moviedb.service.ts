@@ -35,6 +35,8 @@ export class MoviedbService {
 
   private count: number;
 
+  private movie: Movie;
+
 
   // Save this for when we go live
 
@@ -80,10 +82,20 @@ export class MoviedbService {
 
   }
 
-  getPeople(person): Observable<People> {
+
+  // getPeople(movie) {
+  //   // console.log(movie);
+  //   // this.movie = movie;
+  //   for (let y = 0; y < movie.cast.length; y++) {
+  //       return this.getPerson(movie.cast[y], movie, y);
+  //   }
+  // }
+
+
+  getPeople(person, movie, idx): Observable<People> {
     // this.incrementCount();
     // Remove the 3D from the end of title and replace the whitespaces
-    person = person.replace(/\s/g, '%20');
+    person = person.name.replace(/\s/g, '%20');
 
     const category = this.category.replace('%%data%%', 'person');
     const key = this.key.replace('%%data%%', this.apiKey);
@@ -99,6 +111,17 @@ export class MoviedbService {
             tap(error => console.log(`Error ${error.status}. Will retry in 10 seconds.`)),
             delay(10000))
         ),
+        tap((people: People) => {
+          console.log(movie);
+          const ppl = people.results[0];
+          if (ppl.profile_path) {
+            movie.cast[idx].profile = 'https://image.tmdb.org/t/p/w45/' + ppl.profile_path;
+          } else {
+            movie.cast[idx].profile = 'assets/no-image-sm.jpg';
+          }
+
+        }),
+        tap(data => console.log(data)),
         tap(data => this.log('MovieDB person received'))
       );
 
