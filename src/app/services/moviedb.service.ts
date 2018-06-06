@@ -52,8 +52,14 @@ export class MoviedbService {
 
       return this.http.get<Posters>(url)
       .pipe(
+        retryWhen(errors =>
+          errors.pipe(
+            tap(error => console.log(`Error ${error.status}. Will retry in 10 seconds.`)),
+            delay(10000))
+        ),
         tap(data => this.log('MovieDB poster received'))
       );
+
     }
 
     getPeople(person): Observable<People> {
@@ -92,8 +98,14 @@ export class MoviedbService {
 
       return this.http.get<Videos>(url)
       .pipe(
-        tap(data => this.log('MovieDB person received'))
+        retryWhen(errors =>
+          errors.pipe(
+            tap(error => console.log(`Error ${error.status}. Will retry in 10 seconds.`)),
+            delay(10000))
+        ),
+        tap(data => this.log('MovieDB Video received'))
       );
+
     }
 
     private incrementCount() {
