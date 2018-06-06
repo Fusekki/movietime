@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, retryWhen, mergeMap } from 'rxjs/operators';
 
 import { People } from './../interfaces/people';
 import { Posters } from './../interfaces/posters';
@@ -65,6 +65,12 @@ export class MoviedbService {
 
       return this.http.get<People>(url)
       .pipe(
+        // retryWhen((errors) => {
+        //   // return errors
+        //     mergeMap((error) => (error.status === 429) ? Observable.throw(error) : Observable.of(error))
+        //     .delay(1000)
+        //     .take(2);
+        // })
         tap(data => this.log('MovieDB person received'))
       );
     }
