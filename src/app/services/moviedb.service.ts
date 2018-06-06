@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable ,  of } from 'rxjs';
-import { catchError, map, tap, retryWhen, mergeMap } from 'rxjs/operators';
+import { Observable ,  of, throwError } from 'rxjs';
+import { catchError, map, tap, retryWhen, mergeMap, delay, take } from 'rxjs/operators';
 
 import { People } from './../interfaces/people';
 import { Posters } from './../interfaces/posters';
@@ -31,10 +31,13 @@ export class MoviedbService {
     private adult = '&include_adult=false';
     private additional = '%%data%%';
 
+    private count: number;
+
 
     // Save this for when we go live
 
     getMoviePosters(movieName, releaseDate): Observable<Posters> {
+      this.incrementCount();
       // Remove the 3D from the end of title and replace the whitespaces
       movieName = movieName.replace(/[3][D]/g, '').replace(/\s/g, '%20');
 
@@ -46,6 +49,7 @@ export class MoviedbService {
 
       const url = this.moviesUrl + this.keyword + category + key + this.language + query + page + this.adult + additional;
 
+
       return this.http.get<Posters>(url)
       .pipe(
         tap(data => this.log('MovieDB poster received'))
@@ -53,6 +57,7 @@ export class MoviedbService {
     }
 
     getPeople(person): Observable<People> {
+      this.incrementCount();
       // Remove the 3D from the end of title and replace the whitespaces
       person = person.replace(/\s/g, '%20');
 
@@ -65,17 +70,22 @@ export class MoviedbService {
 
       return this.http.get<People>(url)
       .pipe(
-        // retryWhen((errors) => {
-        //   // return errors
-        //     mergeMap((error) => (error.status === 429) ? Observable.throw(error) : Observable.of(error))
-        //     .delay(1000)
-        //     .take(2);
-        // })
+        retryWhen(errors =>
+          // return errors
+          errors.pipe(
+            tap(error => console.log(`Error ${error.status}.`)),
+            // mergeMap((error) => (error.status === 429) ? Observable.throw(error) : Observable.toString()),
+            delay(1000),
+            take(2))
+        ),
         tap(data => this.log('MovieDB person received'))
       );
+
+
     }
 
     getVideos(id): Observable<Videos> {
+      this.incrementCount();
       const category = this.category.replace('%%data%%', 'movie/');
       const key = this.key.replace('%%data%%', this.apiKey);
       const additional = this.additional.replace('%%data%%', '/videos');
@@ -87,6 +97,14 @@ export class MoviedbService {
       .pipe(
         tap(data => this.log('MovieDB person received'))
       );
+    }
+
+    private incrementCount() {
+      if (!this.count) {
+        this.count = 0;
+      }
+      this.count++;
+      console.log('This is call #' + this.count);
     }
 
 
