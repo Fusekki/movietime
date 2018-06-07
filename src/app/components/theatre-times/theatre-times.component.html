@@ -4,9 +4,21 @@
     <h2 mat-line class='theater-name'>{{theater.name}}</h2>
   </mat-list-item>
   <div class='slide-container'>
-    <mat-slide-toggle class="example-margin" color='primary' (change)="toggle($event, theater.id);" [checked]="theater.checked">
+    <!-- <mat-slide-toggle class="example-margin" color='primary' (change)="toggle($event, theater.id);" [checked]="theater.checked">
       Like
-    </mat-slide-toggle>
+    </mat-slide-toggle> -->
+    <button *ngIf='theater.checked; else elseBlock' mat-icon-button color="warn" (click)='removeTheater(theater);'>
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <ng-template #elseBlock>
+      <button mat-icon-button (click)='addTheater(theater);'>
+          <mat-icon>favorite_border</mat-icon>
+      </button>
+    </ng-template>
+
+
+    <!-- <mat-radio-button color='warn' [checked]='theater.checked'></mat-radio-button> -->
+
   </div>
 
   <mat-list-item>
