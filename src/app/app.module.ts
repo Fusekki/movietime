@@ -8,10 +8,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
@@ -71,9 +73,11 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
     BrowserAnimationsModule,
     MatBadgeModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatRadioModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
     YoutubePlayerModule
@@ -82,8 +86,10 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatInputModule,
     MatListModule,
+    MatRadioModule,
     MatSlideToggleModule
   ],
   providers: [ApiService,
