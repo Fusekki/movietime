@@ -64,6 +64,7 @@ export class MovieSearchResultsComponent implements OnInit {
   // Temporary function while outside api calls are enabled
   getUser() {
     this.user = new User(0, 'janedoe@gmail.com', 'Jane', 'Doe', '06902');
+    this.user.theaters.push('5884');
   }
 
   getZipcode(): void {
