@@ -23,7 +23,8 @@ export class UserService {
     getUsers (): Observable<User[]> {
       return this.http.get<User[]>(this.usersUrl)
         .pipe(
-          tap(users => this.log(`fetched users`))
+          tap(users => this.log(`fetched users`)),
+          tap(users => console.log(users))
         );
     }
 
