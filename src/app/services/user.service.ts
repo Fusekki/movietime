@@ -13,7 +13,8 @@ const httpOptions = {
 @Injectable()
 export class UserService {
 
-  private usersUrl = 'api/users';  // URL to web api
+  // private usersUrl = 'api/users';  // URL to web api
+  private usersUrl = 'http://localhost:8000/users';
 
   constructor(private http: HttpClient,
   private reportService: ReportService) { }
