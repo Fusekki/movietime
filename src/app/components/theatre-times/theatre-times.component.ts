@@ -27,27 +27,28 @@ export class TheatreTimesComponent implements OnInit {
     }
   }
 
-  addTheater(id) {
-    if (this.user.theaters.indexOf(id)) {
-      console.log('Theater not in list.');
-      console.log('Adding theater ' + id);
-      this.user.theaters.push(id);
+  addTheater(theater) {
+    if (this.user.theaters.indexOf(theater.id)) {
+      // console.log('Theater not in list.');
+      // console.log('Adding theater ' + theater.id);
+      this.user.theaters.push(theater.id);
+      theater.checked = true;
     } else {
-      console.log('Already in list');
+      // console.log('Already in list');
     }
   }
 
-  removeTheater(id) {
-    const idx = this.user.theaters.indexOf(id);
-    if (id) {
-      console.log('Removing theater ' + id);
+  removeTheater(theater) {
+    const idx = this.user.theaters.indexOf(theater.id);
+    console.log(idx);
+    if (idx > -1 ) {
+      // console.log('Removing theater ' + theater.id);
       this.user.theaters.splice(idx, 1);
+      theater.checked = false;
     } else {
-      console.log('Not in list');
+      // console.log('Not in list');
     }
 
   }
-
-
 
 }
