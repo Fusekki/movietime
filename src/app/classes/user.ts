@@ -7,7 +7,7 @@ export class User {
     this.zipcode = z;
     this.theaters = [];
   }
-    id: number;
+    id: string;
     email: string;
     firstName: string;
     lastName: string;
