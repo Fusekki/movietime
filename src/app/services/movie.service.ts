@@ -54,6 +54,14 @@ export class MovieService {
       for (const showtime of showing.showtimes) {
         // Check if theater exists, if not create it
         const s = movie.theaters.filter(t => t.name === showtime.theatre.name);
+        let checked = theaters.indexOf(showtime.theatre.id);
+        if (checked < 0) {
+          checked = false;
+        } else {
+          checked = true;
+        }
+        console.log('Theatre known : ' + checked);
+        console.log(showtime.theatre.id);
         if (s.length > 0) {
           s[0].times.push(showtime.dateTime);
         } else {
@@ -61,7 +69,7 @@ export class MovieService {
             name: showtime.theatre.name,
             id: showtime.theatre.id,
             times: [showtime.dateTime],
-            checked: false
+            checked: checked
           });
         }
       }
