@@ -2,6 +2,6 @@
 <div class="login-container">
     Login as
   <div class="button-container">
-    <button mat-button mat-raised-button color="accent" *ngFor="let user of users" routerLink="../{{user.id}}/profile">{{user.firstName}}</button>
+    <button mat-button mat-raised-button color="accent" *ngFor="let user of users" routerLink="../{{user._id}}/profile">{{user.firstName}}</button>
   </div>
 </div>
