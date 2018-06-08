@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
     this.newZip = this.zipForm.value.zipcode;
 
     this.userService.updateUser({
-      _id: this.user._id,
+      id: this.user.id,
       email: this.user.email,
       firstName: this.user.firstName,
       lastName: this.user.lastName,
