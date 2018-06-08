@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -39,7 +39,17 @@ export class UserService {
     /** PUT: update the User on the server */
     updateUser (user: User): Observable<any> {
       this.usersUrl += '/' + user._id;
-      return this.http.put(this.usersUrl, user, httpOptions).pipe(
+      // let body = new URLSearchParams();
+
+      const putOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+      };
+      const body = new HttpParams()
+      .set('email', user.email)
+      .set('firstName', user.firstName)
+      .set('lastName', user.lastName)
+      .set('zipcode', user.zipcode)
+      return this.http.put(this.usersUrl, body.toString(), putOptions).pipe(
         tap(_ => this.log(`updated User _id=${user._id}`))
       );
     }
