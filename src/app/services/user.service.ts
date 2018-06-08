@@ -32,14 +32,14 @@ export class UserService {
     getUser(id: number): Observable<User> {
       const url = `${this.usersUrl}/${id}`;
       return this.http.get<User>(url).pipe(
-        tap(_ => this.log(`fetched User id=${id}`))
+        tap(_ => this.log(`fetched User _id=${id}`))
       );
     }
 
     /** PUT: update the User on the server */
     updateUser (user: User): Observable<any> {
       return this.http.put(this.usersUrl, user, httpOptions).pipe(
-        tap(_ => this.log(`updated User id=${user.id}`))
+        tap(_ => this.log(`updated User _id=${user._id}`))
       );
     }
 
