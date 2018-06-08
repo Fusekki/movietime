@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
 
 
   getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('user');
+    const id = this.route.snapshot.paramMap.get('user');
     this.userService.getUser(id).subscribe(user => (this.user = user));
   }
 
@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
     this.newZip = this.zipForm.value.zipcode;
 
     this.userService.updateUser({
-      id: this.user.id,
+      _id: this.user._id,
       email: this.user.email,
       firstName: this.user.firstName,
       lastName: this.user.lastName,
