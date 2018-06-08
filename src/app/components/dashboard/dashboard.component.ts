@@ -87,6 +87,6 @@ export class DashboardComponent implements OnInit {
   }
 
   redirect(): void {
-    this.router.navigate(['./' + this.user.id + '/movies/' + this.newZip]);
+    this.router.navigate(['./' + this.user._id + '/movies/' + this.newZip]);
   }
 }
