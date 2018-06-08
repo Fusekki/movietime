@@ -13,8 +13,8 @@ const httpOptions = {
 @Injectable()
 export class UserService {
 
-  private usersUrl = 'api/users';  // URL to web api
-  // private usersUrl = 'http://localhost:8000/users';
+  // private usersUrl = 'api/users';  // URL to web api
+  private usersUrl = 'http://localhost:8000/users';
 
   constructor(private http: HttpClient,
   private reportService: ReportService) { }
@@ -29,7 +29,7 @@ export class UserService {
     }
 
     /** GET User by id. Will 404 if id not found */
-    getUser(id: number): Observable<User> {
+    getUser(id: string): Observable<User> {
       const url = `${this.usersUrl}/${id}`;
       return this.http.get<User>(url).pipe(
         tap(_ => this.log(`fetched User _id=${id}`))
@@ -38,6 +38,7 @@ export class UserService {
 
     /** PUT: update the User on the server */
     updateUser (user: User): Observable<any> {
+      this.usersUrl += '/' + user._id;
       return this.http.put(this.usersUrl, user, httpOptions).pipe(
         tap(_ => this.log(`updated User _id=${user._id}`))
       );
