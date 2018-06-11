@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -45,24 +45,28 @@ export class MovieSearchResultsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getUser();
+    this.getData();
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
     });
     this.getArea();
-    this.getMovies()
-    .subscribe((data: Showings[]) => {
-      // if (this.user.theaters == undefined) {
-      //   this.user.theaters = null;
-      // }
-      // this.movies = this.parseMovies(data, this.user.theaters);
-    });
     this.log();
   }
 
-  getUser(): void {
+  getData(): void {
     const id = this.route.snapshot.paramMap.get('user');
-    this.userService.getUser(id).subscribe(user => (this.user = user));
+    // this.userService.getUser(id).subscribe(user => (this.user = user));
+    this.userService.getUser(id).subscribe(
+      user => this.user = user,
+      e => console.log('onError: %s', e),
+      () => {
+        // console.log('onCompleted');
+        this.getMovies()
+        .subscribe((data: Showings[]) => {
+          this.movies = this.parseMovies(data, this.user.theaters);
+        });
+      }
+    );
   }
 
   // Temporary function while outside api calls are enabled
@@ -84,12 +88,12 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   parseMovies(data, theaters) {
+    console.log(theaters);
     return this.movieService.parseMovies(data, theaters);
   }
 
   log(): void {
     console.log('movie-search component loaded.');
   }
-
 
 }
