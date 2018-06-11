@@ -1,0 +1,13 @@
+.heading-wrapper {
+  background: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+}
+
+.heading-wrapper button {
+  margin-top: 10px;
+}
