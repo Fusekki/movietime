@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../classes/user';
+
+// import { User } from '../../classes/user';
 
 @Component({
   selector: 'app-theater-list',
@@ -6,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theater-list.component.css']
 })
 export class TheaterListComponent implements OnInit {
-
+  @Input() user: User;
   constructor() { }
 
   ngOnInit() {
