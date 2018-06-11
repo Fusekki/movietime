@@ -14,6 +14,8 @@ export class TheatreTimesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.log();
+    console.log(this.theater);
   }
 
   toggle(e, id): void {
@@ -48,7 +50,11 @@ export class TheatreTimesComponent implements OnInit {
     } else {
       // console.log('Not in list');
     }
-
   }
+
+  log(): void {
+    console.log('theater-times component loaded.')
+  }
+
 
 }

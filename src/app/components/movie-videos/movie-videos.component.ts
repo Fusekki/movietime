@@ -30,6 +30,8 @@ export class MovieVideosComponent implements OnInit {
         this.videos.push(video);
       }
     });
+
+    this.log();
   }
 
   getVideoId(): void {
@@ -42,6 +44,10 @@ export class MovieVideosComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  log(): void {
+    console.log('movie-videos component loaded.')
   }
 
 }

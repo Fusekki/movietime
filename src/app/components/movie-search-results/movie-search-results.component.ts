@@ -54,18 +54,19 @@ export class MovieSearchResultsComponent implements OnInit {
     .subscribe((data: Showings[]) => {
       this.movies = this.parseMovies(data, this.user.theaters);
     });
+    this.log();
   }
 
-  // getUser(): void {
-  //   const id = +this.route.snapshot.paramMap.get('user');
-  //   this.userService.getUser(id).subscribe(user => (this.user = user));
-  // }
+  getUser(): void {
+    const id = this.route.snapshot.paramMap.get('user');
+    this.userService.getUser(id).subscribe(user => (this.user = user));
+  }
 
   // Temporary function while outside api calls are enabled
-  getUser() {
-    this.user = new User(0, 'janedoe@gmail.com', 'Jane', 'Doe', '06902');
-    this.user.theaters.push('5884');
-  }
+  // getUser() {
+  //   this.user = new User(0, 'janedoe@gmail.com', 'Jane', 'Doe', '06902');
+  //   this.user.theaters.push('5884');
+  // }
 
   getZipcode(): void {
     this.areaService.getArea(this.zipcode).subscribe(area => (this.area = area));
@@ -82,5 +83,10 @@ export class MovieSearchResultsComponent implements OnInit {
   parseMovies(data, theaters) {
     return this.movieService.parseMovies(data, theaters);
   }
+
+  log(): void {
+    console.log('movie-search component loaded.');
+  }
+
 
 }

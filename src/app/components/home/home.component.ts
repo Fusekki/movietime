@@ -18,11 +18,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.log();
   }
 
   getUsers(): void {
     this.userService.getUsers()
     .subscribe(users => this.users = users);
+  }
+
+  log(): void {
+    console.log('home component loaded.');
   }
 
 

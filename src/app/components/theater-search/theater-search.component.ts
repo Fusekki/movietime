@@ -42,6 +42,7 @@ export class TheaterSearchComponent implements OnInit {
   ngOnInit() {
     this.getUser();
     this.createForm();
+    this.log();
   }
 
 
@@ -88,5 +89,9 @@ export class TheaterSearchComponent implements OnInit {
 
   redirect(): void {
     this.router.navigate(['./' + this.user._id + '/movies/' + this.newZip]);
+  }
+
+  log(): void {
+    console.log('theater-search component loaded.')
   }
 }

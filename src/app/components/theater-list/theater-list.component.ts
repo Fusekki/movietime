@@ -13,6 +13,11 @@ export class TheaterListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.log();
+  }
+
+  log(): void {
+    console.log('theater-list component loaded.');
   }
 
 }

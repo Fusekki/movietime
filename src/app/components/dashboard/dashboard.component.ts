@@ -22,11 +22,18 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    this.log();
   }
 
   getUser(): void {
     const id = this.route.snapshot.paramMap.get('user');
     this.userService.getUser(id).subscribe(user => (this.user = user));
   }
+
+
+  log(): void {
+    console.log('dashboard component loaded.');
+  }
+
 
 }

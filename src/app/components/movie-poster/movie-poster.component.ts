@@ -17,6 +17,7 @@ export class MoviePosterComponent implements OnInit {
   ngOnInit() {
     this.getMoviePosters(this.movie)
     .subscribe();
+    this.log();
   }
 
   getMoviePosters(movie) {
@@ -24,4 +25,9 @@ export class MoviePosterComponent implements OnInit {
     // return this.moviedbService.getMoviePosters(movie.title, year);
     return this.moviedbService.getMoviePosters(movie);
   }
+
+  log(): void {
+    console.log('movie-poster component loaded.');
+  }
+
 }

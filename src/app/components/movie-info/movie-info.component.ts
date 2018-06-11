@@ -19,10 +19,16 @@ export class MovieInfoComponent implements OnInit {
     this.getPeople(this.movie.cast[y], this.movie, y)
     .subscribe();
     }
+    this.log();
   }
 
   getPeople(person, movie, idx) {
     return this.moviedbService.getPeople(person, movie, idx);
+  }
+
+
+  log(): void {
+    console.log('movie-info component loaded.');
   }
 
 }
