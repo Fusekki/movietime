@@ -52,7 +52,10 @@ export class MovieSearchResultsComponent implements OnInit {
     this.getArea();
     this.getMovies()
     .subscribe((data: Showings[]) => {
-      this.movies = this.parseMovies(data, this.user.theaters);
+      // if (this.user.theaters == undefined) {
+      //   this.user.theaters = null;
+      // }
+      // this.movies = this.parseMovies(data, this.user.theaters);
     });
     this.log();
   }
