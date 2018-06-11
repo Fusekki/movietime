@@ -1,3 +1,7 @@
-<p>
-  theater-list works!
-</p>
+<div class='template-container' *ngIf='user'>
+  top {{user.firstName}}
+  {{user.theaters}}
+  <div *ngFor='let theater of user.theaters'>
+    {{theater}}
+  </div>
+</div>
