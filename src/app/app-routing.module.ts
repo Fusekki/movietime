@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: ':user/profile', component: DashboardComponent },
+  { path: ':user/theaters/search', component: TheaterSearchComponent},
   { path: ':user/movies/:zipcode', component: MovieSearchResultsComponent },
   { path: ':user/movies/:video/videos', component: MovieVideosComponent },
   // These defaults need to be last
