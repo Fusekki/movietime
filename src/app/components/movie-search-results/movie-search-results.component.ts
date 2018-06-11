@@ -88,7 +88,6 @@ export class MovieSearchResultsComponent implements OnInit {
   }
 
   parseMovies(data, theaters) {
-    console.log(theaters);
     return this.movieService.parseMovies(data, theaters);
   }
 
