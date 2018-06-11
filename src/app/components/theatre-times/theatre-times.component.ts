@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, Input } from '@angular/core';
 import { Theater } from '../../classes/movie';
 import { User } from '../../classes/user';
 
@@ -11,7 +11,7 @@ export class TheatreTimesComponent implements OnInit {
   @Input() theater: Theater;
   @Input() user: User;
 
-  constructor() { }
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.log();
@@ -27,11 +27,18 @@ export class TheatreTimesComponent implements OnInit {
     } else {
       this.removeTheater(id);
     }
+    ref.detectChanges();
   }
 
   addTheater(theater) {
-    if (this.user.theaters.indexOf(theater.id)) {
-      // console.log('Theater not in list.');
+    console.log('adding theater');
+    if (this.user.theaters == null) {
+      this.user.theaters = [theater];
+      // Note: Need to find a way to update all theaters with this checkmark
+      theater.checked = true;
+      console.log(this.user.theaters);
+    } else if (this.user.theaters.indexOf(theater.id)) {
+            // console.log('Theater not in list.');
       // console.log('Adding theater ' + theater.id);
       this.user.theaters.push(theater.id);
       theater.checked = true;
