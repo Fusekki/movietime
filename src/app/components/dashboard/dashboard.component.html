@@ -1,9 +1,10 @@
 <div class='template-wrapper' *ngIf='user'>
   Hello {{user.firstName}}.
-
   <div *ngIf='user.theaters?.length == 0'>
     Looks like you don't have any theaters selected.
-    <button mat-button mat-raised-button color="accent" [routerLink]="['../theaters/search']">Theaters</button>
   </div>
-
+  <div *ngIf='user.theaters?.length != 0'>
+    Looks like you have Theaters selected.  If you'd like to add more, click the button below.
+  </div>
+  <button mat-button mat-raised-button color="accent" [routerLink]="['../theaters/search']">Theaters</button>
 </div>
