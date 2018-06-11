@@ -1,3 +1,9 @@
-<p>
-  dashboard works!
-</p>
+<div class='template-wrapper' *ngIf='user'>
+  Hello {{user.firstName}}.
+
+  <div *ngIf='user.theaters?.length == 0'>
+    Looks like you don't have any theaters selected.
+    <button mat-button mat-raised-button color="accent" [routerLink]="['../theaters/search']">Theaters</button>
+  </div>
+
+</div>
