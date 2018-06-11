@@ -22,11 +22,11 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../classes/user';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-theater-search',
+  templateUrl: './theater-search.component.html',
+  styleUrls: ['./theater-search.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class TheaterSearchComponent implements OnInit {
   user: User;
   zipForm: FormGroup;
   zipPattern = /^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/;

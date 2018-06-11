@@ -35,7 +35,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './classes/in-memory-data.service';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TheaterSearchComponent } from './components/theater-search/theater-search.component';
 import { ReportComponent } from './components/report/report.component';
 import { MovieSearchResultsComponent } from './components/movie-search-results/movie-search-results.component';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
@@ -51,7 +51,7 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
     DurationPipe,
     HomeComponent,
     PageNotFoundComponent,
-    DashboardComponent,
+    TheaterSearchComponent,
     ReportComponent,
     MovieSearchResultsComponent,
     YoutubePlayerComponent,
