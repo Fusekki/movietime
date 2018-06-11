@@ -54,12 +54,15 @@ export class MovieService {
       for (const showtime of showing.showtimes) {
         // Check if theater exists, if not create it
         const s = movie.theaters.filter(t => t.name === showtime.theatre.name);
-        let checked = theaters.indexOf(showtime.theatre.id);
-        if (checked === -1 ) {
-          checked = false;
-        } else {
-          checked = true;
+        if (theaters) {
+          let checked = theaters.indexOf(showtime.theatre.id);
+          if (checked === -1 ) {
+            checked = false;
+          } else {
+            checked = true;
+          }
         }
+
         // console.log('Theatre known : ' + checked);
         // console.log(showtime.theatre.id);
         if (s.length > 0) {
