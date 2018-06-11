@@ -24,7 +24,7 @@ export class UserService {
       return this.http.get<User[]>(this.usersUrl)
         .pipe(
           tap(users => this.log(`fetched users`)),
-          tap(users => console.log(users))
+          // tap(users => console.log(users))
         );
     }
 
