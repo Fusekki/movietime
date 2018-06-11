@@ -1,10 +1,10 @@
-<div class='template-wrapper' *ngIf='user'>
-  Hello {{user.firstName}}.
+<div class='heading-wrapper' *ngIf='user'>
+  <h3>Hello {{user.firstName}}.</h3>
   <div *ngIf='user.theaters?.length == 0'>
-    Looks like you don't have any theaters selected.
+    Looks like you don't have any theaters selected. Click the button below to add some.
   </div>
   <div *ngIf='user.theaters?.length != 0'>
     Looks like you have Theaters selected.  If you'd like to add more, click the button below.
   </div>
-  <button mat-button mat-raised-button color="accent" [routerLink]="['../theaters/search']">Theaters</button>
+  <button mat-button mat-raised-button color="primary" [routerLink]="['../theaters/search']">Theaters</button>
 </div>
