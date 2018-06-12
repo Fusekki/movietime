@@ -1,3 +1,18 @@
+
+.spinner-container {
+  height: 100%;
+}
+
+h2 {
+  text-align: center;
+}
+
+mat-spinner {
+  position: absolute;
+  top: calc(40% - 50px);
+  left: calc(50% - 50px);
+}
+
 .list-container {
     border: 2px solid gray;
     margin: 20px 0;
