@@ -7,7 +7,8 @@
     <!-- <mat-slide-toggle class="example-margin" color='primary' (change)="toggle($event, theater.id);" [checked]="theater.checked">
       Like
     </mat-slide-toggle> -->
-    <button *ngIf='theater.checked; else elseBlock' mat-icon-button color="warn" (click)='removeTheater(theater);'>
+    <button *ngIf='checkTheater(theater); else elseBlock' mat-icon-button color="warn" (click)='removeTheater(theater);'>
+    <!-- <button *ngIf='theater.checked; else elseBlock' mat-icon-button color="warn" (click)='removeTheater(theater);'> -->
       <mat-icon>favorite</mat-icon>
     </button>
     <ng-template #elseBlock>
