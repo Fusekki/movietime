@@ -7,7 +7,7 @@ h2 {
   text-align: center;
 }
 
-mat-spinner {
+.spinner-wrapper {
   position: absolute;
   top: calc(40% - 50px);
   left: calc(50% - 50px);
