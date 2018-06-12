@@ -13,8 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -81,6 +83,7 @@ import { TheaterListComponent } from './components/theater-list/theater-list.com
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
@@ -93,6 +96,7 @@ import { TheaterListComponent } from './components/theater-list/theater-list.com
     MatCheckboxModule,
     MatInputModule,
     MatListModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
     MatSlideToggleModule
   ],
