@@ -34,6 +34,7 @@ export class MovieSearchResultsComponent implements OnInit {
   user: User;
   zipcode: number;
   username: string;
+  movies: Movie[];
   _movies: Array<Movie>;
 
   constructor(
@@ -65,7 +66,8 @@ export class MovieSearchResultsComponent implements OnInit {
         // console.log('onCompleted');
         this.getMovies()
         .subscribe((data: Showings[]) => {
-          this._movies = this.parseMovies(data, this.user.theaters);
+          this.movies = this.parseMovies(data, this.user.theaters);
+          this._movies = this.movies;
         });
       }
     );
