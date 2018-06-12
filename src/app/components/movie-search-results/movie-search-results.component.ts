@@ -1,16 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
-
-import { Observable, of } from 'rxjs';
-import { map, mergeMap, tap } from 'rxjs/operators';
-
-import {MatBadgeModule} from '@angular/material/badge';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
 
 import { ApiService } from '../../services/api.service';
 
@@ -19,7 +8,7 @@ import { MovieService } from '../../services/movie.service';
 import { UserService } from '../../services/user.service';
 import { Area } from '../../classes/area';
 import { User } from '../../classes/user';
-import { Movie, Theater } from '../../classes/movie';
+import { Movie } from '../../classes/movie';
 import { Showings } from '../../interfaces/showings';
 
 
@@ -42,7 +31,6 @@ export class MovieSearchResultsComponent implements OnInit {
     private areaService: AreaService,
     private movieService: MovieService,
     private userService: UserService,
-    private router: Router,
     private route: ActivatedRoute) {
       this._movies = new Array<Movie>();
     }
