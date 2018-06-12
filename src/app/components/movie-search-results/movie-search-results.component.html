@@ -1,4 +1,9 @@
-<h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
+<div class='spinner-container'>
+  <h2>Loading...</h2>
+  <mat-spinner *ngIf='_movies.length < 5000'></mat-spinner>
+</div>
+<div class='results-container' *ngIf='_movies.length > 50000'>
+  <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <div class='list-wrapper' *ngFor='let movie of _movies'>
   <!-- <div class="list-container" *ngIf='movie.poster'> -->
   <div class="list-container">
@@ -26,3 +31,6 @@
     <app-movie-info [movie]='movie'></app-movie-info>
   </div>
 </div>
+</div>
+
+
