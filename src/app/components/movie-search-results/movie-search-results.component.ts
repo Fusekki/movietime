@@ -34,7 +34,7 @@ export class MovieSearchResultsComponent implements OnInit {
   user: User;
   zipcode: number;
   username: string;
-  movies: Movie[];
+  _movies: Array<Movie>;
 
   constructor(
     private apiService: ApiService,
@@ -42,7 +42,9 @@ export class MovieSearchResultsComponent implements OnInit {
     private movieService: MovieService,
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      this._movies = new Array<Movie>();
+    }
 
   ngOnInit() {
     this.getData();
@@ -63,7 +65,7 @@ export class MovieSearchResultsComponent implements OnInit {
         // console.log('onCompleted');
         this.getMovies()
         .subscribe((data: Showings[]) => {
-          this.movies = this.parseMovies(data, this.user.theaters);
+          this._movies = this.parseMovies(data, this.user.theaters);
         });
       }
     );
