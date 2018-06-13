@@ -44,11 +44,13 @@ export class UserService {
       const putOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
       };
+      console.log(user.theaters);
       const body = new HttpParams()
       .set('email', user.email)
       .set('firstName', user.firstName)
       .set('lastName', user.lastName)
       .set('zipcode', user.zipcode)
+      .set('theaters', user.theaters);
       return this.http.put(this.usersUrl, body.toString(), putOptions).pipe(
         tap(_ => this.log(`updated User _id=${user._id}`))
       );
