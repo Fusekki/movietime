@@ -3,6 +3,8 @@ import { Observable ,  of } from 'rxjs';
 import { Theater } from '../../classes/movie';
 import { User } from '../../classes/user';
 
+import {UserService} from '../../services/user.service';
+
 @Component({
   selector: 'app-theatre-times',
   templateUrl: './theatre-times.component.html',
@@ -11,11 +13,18 @@ import { User } from '../../classes/user';
 export class TheatreTimesComponent implements OnInit {
   @Input() theater: Theater;
   @Input() user: User;
-  constructor(private ref: ChangeDetectorRef) {
-  }
+  // changesDetected: boolean;
+
+  constructor(
+    private ref: ChangeDetectorRef,
+    private userService: UserService) {
+    }
 
   ngOnInit() {
     this.log();
+    // this.changesDetected = false;
+    // console.log(this.changesDetected);
+    // const nIntervId = setInterval(this.checkForChanges, 10000);
     // console.log(this.theater);
   }
 
@@ -47,6 +56,13 @@ export class TheatreTimesComponent implements OnInit {
     } else {
       // console.log('Already in list');
     }
+    console.log('Theater added.   Changes detected.');
+    // this.changesDetected = true;
+    // Update the database
+    console.log('updatind user.');
+    console.log(this.user);
+    this.userService.updateUser(this.user);
+
   }
 
   removeTheater(theater) {
@@ -70,10 +86,11 @@ export class TheatreTimesComponent implements OnInit {
       // console.log(this.user.theaters.indexOf(theater.id));
         // console.log('Not in list');
     }
-  }
-
-  log(): void {
-    console.log('theater-times component loaded.');
+    // this.changesDetected = true;
+        // Update the database
+        console.log('updatind user.');
+        console.log(this.user);
+        this.userService.updateUser(this.user);
   }
 
   checkTheater(theater) {
@@ -86,5 +103,22 @@ export class TheatreTimesComponent implements OnInit {
     }
     return false;
   }
+
+  // checkForChanges() {
+  //   console.log('Checking for changes');
+  //   console.log(this.changesDetected);
+  //   if (this.changesDetected) {
+  //     // Commit changes to DB
+  //     console.log('Changes detected');
+  //     this.userService.updateUser(this.user);
+  //     this.changesDetected = false;
+  //   }
+  // }
+
+  log(): void {
+    console.log('theater-times component loaded.');
+  }
+
+
 
 }
