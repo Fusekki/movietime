@@ -11,7 +11,7 @@ export class TheatreTimesComponent implements OnInit {
   @Input() theater: Theater;
   // @Input() user: User;
 
-  @Input() user: <User>;
+  @Input() user: <User>();
 
   constructor(private ref: ChangeDetectorRef) {
   }
