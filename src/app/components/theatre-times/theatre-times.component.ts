@@ -1,4 +1,5 @@
 import { Component, ChangeDetectorRef, OnInit, Input } from '@angular/core';
+import { Observable ,  of } from 'rxjs';
 import { Theater } from '../../classes/movie';
 import { User } from '../../classes/user';
 
@@ -9,10 +10,7 @@ import { User } from '../../classes/user';
 })
 export class TheatreTimesComponent implements OnInit {
   @Input() theater: Theater;
-  // @Input() user: User;
-
-  @Input() user: <User>();
-
+  @Input() user: User;
   constructor(private ref: ChangeDetectorRef) {
   }
 
@@ -81,8 +79,9 @@ export class TheatreTimesComponent implements OnInit {
   checkTheater(theater) {
     if (this.user.theaters == null) {
       return false;
-      console.log(this.user.theaters);
-    } else if (this.user.theaters.indexOf(theater.id) > -1) {
+    }
+
+    if (this.user.theaters.indexOf(theater.id) > -1) {
       return true;
     }
     return false;
