@@ -47,6 +47,7 @@ export class TheaterSearchComponent implements OnInit {
 
 
   getUser(): void {
+    console.log('Calling getUser.');
     const id = this.route.snapshot.paramMap.get('user');
     this.userService.getUser(id).subscribe(user => (this.user = user));
   }
