@@ -42,17 +42,22 @@ export class UserService {
     updateUser (user: User): Observable<any> {
       const url = this.usersUrl + '/' + user._id;
       // let body = new URLSearchParams();
-
+      console.log(url);
       const putOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
       };
       console.log(user.theaters);
-      const body = new HttpParams()
+      let body = new HttpParams()
       .set('email', user.email)
       .set('firstName', user.firstName)
       .set('lastName', user.lastName)
       .set('zipcode', user.zipcode);
-      // .set('theaters', user.theaters);
+      if (user.theaters !== undefined) {
+        const theaters = user.theaters.join();
+        console.log(theaters);
+        body = body.append('theaters', theaters);
+        console.log(body);
+      }
       return this.http.put(url, body.toString(), putOptions).pipe(
         tap(_ => this.log(`updated User _id=${user._id}`))
       );
