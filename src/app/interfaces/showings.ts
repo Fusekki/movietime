@@ -22,7 +22,7 @@ export class QualityRating {
 }
 
 export class Theatre {
-  id: string;
+  id: number;
   name: string;
 }
 
