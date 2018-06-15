@@ -56,7 +56,7 @@ export class MovieService {
         const s = movie.theaters.filter(t => t.name === showtime.theatre.name);
         let checked = false;
           if (theaters) {
-            const idx = theaters.indexOf(showtime.theatre.id);
+            const idx: number = theaters.indexOf(showtime.theatre.id);
             if (idx > 0 ) {
               checked = true;
             }
