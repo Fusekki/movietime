@@ -14,7 +14,7 @@ const httpOptions = {
 export class UserService {
 
   // private usersUrl = 'api/users';  // URL to web api
-  private usersUrl = 'http://localhost:8000/users';
+  readonly usersUrl = 'http://localhost:8000/users';
 
   constructor(private http: HttpClient,
   private reportService: ReportService) { }
@@ -30,7 +30,9 @@ export class UserService {
 
     /** GET User by id. Will 404 if id not found */
     getUser(id: string): Observable<User> {
+      console.log(id);
       const url = `${this.usersUrl}/${id}`;
+      console.log(url);
       return this.http.get<User>(url).pipe(
         tap(_ => this.log(`fetched User _id=${id}`))
       );
@@ -38,7 +40,7 @@ export class UserService {
 
     /** PUT: update the User on the server */
     updateUser (user: User): Observable<any> {
-      this.usersUrl += '/' + user._id;
+      const url = this.usersUrl + '/' + user._id;
       // let body = new URLSearchParams();
 
       const putOptions = {
@@ -49,9 +51,9 @@ export class UserService {
       .set('email', user.email)
       .set('firstName', user.firstName)
       .set('lastName', user.lastName)
-      .set('zipcode', user.zipcode)
-      .set('theaters', user.theaters);
-      return this.http.put(this.usersUrl, body.toString(), putOptions).pipe(
+      .set('zipcode', user.zipcode);
+      // .set('theaters', user.theaters);
+      return this.http.put(url, body.toString(), putOptions).pipe(
         tap(_ => this.log(`updated User _id=${user._id}`))
       );
     }
