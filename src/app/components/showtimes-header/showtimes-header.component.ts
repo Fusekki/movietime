@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-showtimes-header',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./showtimes-header.component.css']
 })
 export class ShowtimesHeaderComponent implements OnInit {
+@Input() zipcode: number;
 
   constructor() { }
 
