@@ -1,0 +1,20 @@
+.info {
+  display: flex;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.info-title {
+  font-size: 18px;
+}
+
+.mat-list {
+  background: lightgray;
+}
+
+.square {
+  background: red;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}
