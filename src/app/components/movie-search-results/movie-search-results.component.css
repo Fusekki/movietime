@@ -1,10 +1,9 @@
+h2 {
+  text-align: center;
+}
 
 .spinner-container {
   height: 100%;
-}
-
-h2 {
-  text-align: center;
 }
 
 .spinner-wrapper {
@@ -12,67 +11,3 @@ h2 {
   top: calc(40% - 50px);
   left: calc(50% - 50px);
 }
-
-.list-container {
-    border: 2px solid gray;
-    margin: 20px 0;
-}
-
-.box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.date {
-  margin-left: 10px;
-}
-
-.mat-list {
-  background: lightgray;
-}
-
-.info {
-  display: flex;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-
-.info-title {
-  font-size: 18px;
-
-}
-
-.flex-line {
-  display: flex;
-  height: auto !important;
-}
-
-.square {
-  background: red;
-  height: 20px;
-  margin-right: 10px;
-  width: 20px;
-
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.short {
-  height: 24px !important;
-  margin: 5px 0;
-}
-
-
-.field {
-  color: grey;
-  margin-right: 5px;
-}
-
-.no-height {
-  height: 0 !important;
-}
-
