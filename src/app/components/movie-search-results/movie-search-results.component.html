@@ -1,39 +1,12 @@
-<div class='spinner-container' *ngIf='!_movies.length' >
-  <div class='spinner-wrapper' >
-      <h2>Loading...</h2>
-      <mat-spinner ></mat-spinner>
+<div class='spinner-container' *ngIf='!_movies.length'>
+  <div class='spinner-wrapper'>
+    <h2>Loading...</h2>
+    <mat-spinner></mat-spinner>
   </div>
 </div>
 <div class='results-container' *ngIf='_movies.length'>
   <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
-<div class='list-wrapper' *ngFor='let movie of _movies'>
-  <app-movie-list></app-movie-list>
-  <!-- <div class="list-container" *ngIf='movie.poster'> -->
-  <!-- <div class="list-container">
-
-    <mat-list>
-      <mat-list-item>
-        <h4>{{movie.title | uppercase}}</h4>
-        <h6 class="date">({{movie.releaseDate | date: 'yyyy'}})</h6>
-      </mat-list-item>
-      <app-movie-poster [movie]='movie'></app-movie-poster>
-      <mat-list-item>
-        <div>
-          <div class='info'>
-            <div class='square'>
-            </div>
-            <span class='info-title'>TICKETS & SHOWTIMES</span>
-          </div>
-        </div>
-      </mat-list-item>
-      <mat-list-item>
-        <span>Showtimes for <span class='bold'>today</span> near <span class='bold'> {{zipcode}}</span></span>
-      </mat-list-item>
-    </mat-list>
-    <app-theatre-times *ngFor='let theater of movie.theaters' [theater]='theater' [user]='user'></app-theatre-times>
-    <app-movie-info [movie]='movie'></app-movie-info>
-  </div> -->
+  <div class='list-wrapper' *ngFor='let movie of _movies'>
+    <app-movie-item [movie]='movie' [user]='user'></app-movie-item>
+  </div>
 </div>
-</div>
-
-
