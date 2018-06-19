@@ -52,7 +52,7 @@ export class UserService {
       .set('firstName', user.firstName)
       .set('lastName', user.lastName)
       .set('zipcode', user.zipcode);
-      if (user.theaters !== undefined) {
+      if (Array.isArray(user.theaters)) {
         const theaters = user.theaters.join();
         console.log(theaters);
         body = body.append('theaters', theaters);
