@@ -49,6 +49,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TheaterListComponent } from './components/theater-list/theater-list.component';
 import { TheaterItemComponent } from './components/theater-item/theater-item.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { ShowtimesHeaderComponent } from './components/showtimes-header/showtimes-header.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
     TheaterItemComponent,
     TheaterListComponent,
     MovieItemComponent,
+    ShowtimesHeaderComponent,
   ],
   imports: [
     BrowserModule,
