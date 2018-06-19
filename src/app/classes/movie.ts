@@ -22,6 +22,30 @@ class Video {
 }
 
 export class Movie {
+  // public cast: Array<Cast>;
+  // public theaters: Array<Theater>;
+  // constructor(
+  //   sTitle: string,
+  //   sSubType: string,
+  //   sReleaseData: string,
+  //   genres: Array<string>,
+  //   cast: Array<any>,
+  //   directors: Array<string>,
+  //   sShortDescription: string,
+  //   sLongDescription: string,
+  //   sRated: string,
+  //   advisories: Array<string>,
+  //   sRunTime: string,
+  //   theaters: Array<any>,
+  //   sPoster: string,
+  //   sVoteAverage: string,
+  //   sPopularity: string,
+  //   videos: Array<any>[]
+  // ) {
+  //   this.theaters = theaters.map(theater => new Theater(name, id, times, checked));
+    // this.cast = cast.map(cast => new Cast(name, profile));
+
+
     constructor(t, st, rd, g, d, sd, ld, r, ad, rt)  {
         this.id = null;
         this.title = t;
