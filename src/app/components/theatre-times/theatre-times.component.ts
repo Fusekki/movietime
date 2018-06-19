@@ -13,7 +13,6 @@ import {UserService} from '../../services/user.service';
 export class TheatreTimesComponent implements OnInit {
   @Input() theater: Theater;
   @Input() user: User;
-  // changesDetected: boolean;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -25,10 +24,11 @@ export class TheatreTimesComponent implements OnInit {
   }
 
   addTheater(theater: Theater) {
+    console.log(typeof(theater.id));
     if (this.user.theaters == null) {
       this.user.theaters = [theater.id];
       theater.checked = true;
-    } else if (this.user.theaters.indexOf(theater.id)) {
+    } else if (this.user.theaters.indexOf(theater.id) === -1) {
       this.user.theaters.push(theater.id);
       theater.checked = true;
     }
@@ -54,10 +54,15 @@ export class TheatreTimesComponent implements OnInit {
   }
 
   checkTheater(theater: Theater) {
+
+    // Convert to int
+    theater.id = +theater.id;
+
     if (this.user.theaters == null) {
       return false;
     }
 
+    // console.log(this.user.theaters.indexOf(theater.id));
     if (this.user.theaters.indexOf(theater.id) > -1) {
       return true;
     }
