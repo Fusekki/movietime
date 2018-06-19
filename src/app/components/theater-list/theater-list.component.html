@@ -1,5 +1,3 @@
 <div class='template-container' *ngIf='user'>
-  <div *ngFor='let theater of user.theaters'>
-    {{theater}}
-  </div>
+  <app-theater-item *ngFor='let theater of user.theaters' [theater]='theater'></app-theater-item>
 </div>
