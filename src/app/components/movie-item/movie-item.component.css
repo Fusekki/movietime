@@ -16,11 +16,6 @@
   font-size: 18px;
 }
 
-.list-container {
-  border: 2px solid gray;
-  margin: 20px 0;
-}
-
 .mat-list {
   background: lightgray;
 }
