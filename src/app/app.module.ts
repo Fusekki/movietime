@@ -48,7 +48,7 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TheaterListComponent } from './components/theater-list/theater-list.component';
 import { TheaterItemComponent } from './components/theater-item/theater-item.component';
-import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 
 
 @NgModule({
@@ -68,7 +68,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     DashboardComponent,
     TheaterItemComponent,
     TheaterListComponent,
-    MovieListComponent
+    MovieItemComponent,
   ],
   imports: [
     BrowserModule,

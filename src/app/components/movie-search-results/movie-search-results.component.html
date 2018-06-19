@@ -7,8 +7,9 @@
 <div class='results-container' *ngIf='_movies.length'>
   <h3 mat-subheader>Movies playing near {{zipcode}}...</h3>
 <div class='list-wrapper' *ngFor='let movie of _movies'>
+  <app-movie-list></app-movie-list>
   <!-- <div class="list-container" *ngIf='movie.poster'> -->
-  <div class="list-container">
+  <!-- <div class="list-container">
 
     <mat-list>
       <mat-list-item>
@@ -31,7 +32,7 @@
     </mat-list>
     <app-theatre-times *ngFor='let theater of movie.theaters' [theater]='theater' [user]='user'></app-theatre-times>
     <app-movie-info [movie]='movie'></app-movie-info>
-  </div>
+  </div> -->
 </div>
 </div>
 
