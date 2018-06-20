@@ -1,10 +1,14 @@
-import { createHostListener } from "@angular/compiler/src/core";
-
 class Cast {
   constructor(
     sName: string,
     sProfile?: string
-  ) { }
+  ) {
+    this.name = sName;
+    this.profile = sProfile;
+   }
+
+   private name: string;
+   private profile: string;
 }
 
 class Video {
@@ -24,59 +28,67 @@ export class Theater {
   constructor(
     sName: string,
     nId: number,
-    movies: Array<Movie>
-  ) { }
+    movie: Movie
+  ) {
+    this.name = sName;
+    this.id = nId;
+    this.movies = new Array<Movie>(movie);
+   }
   // times: string[];
+  name: string;
+  id: number;
+  movies: Array<Movie>;
 }
 
 export class Movie {
-  // public cast: Array<Cast>;
+  public cast: Array<Cast>;
   public theaters: Array<Theater>;
   constructor(
     sTitle: string,
     sSubType: string,
     sReleaseDate: string,
     genres: Array<string>,
-    cast: string,
+    sCast: Array<string>,
     directors: Array<string>,
     sShortDescription: string,
     sLongDescription: string,
-    sRated: string,
+    sRated: Array<string>,
     advisories: Array<string>,
     sRunTime: string
-    // theaters: Array<any>,
-    // sPoster: string,
-    // sVoteAverage: string,
-    // sPopularity: string,
-    // videos: Array<any>[]
   ) {
     this.title = sTitle;
     this.subType = sSubType;
     this.releaseData = sReleaseDate;
     this.genres = genres;
-    this.cast = cast;
     this.directors = directors;
     this.shortDescription = sShortDescription;
     this.longDescription = sLongDescription;
     this.rated = sRated;
     this.advisories = advisories;
     this.runTime = sRunTime;
+    this.cast = new Array<Cast>();
+    if (!sCast === undefined) {
+        sCast.forEach(actor => this.cast.push(new Cast(actor)));
+    }
+
     // this.theaters = theaters.map(theater => new Theater(theater.name, theater.id, theater.times));
-    // this.cast = cast.split(',').map(actor => new Cast(actor));
-    console.log(this.cast);
+    // this.cast = sCast.lit(',').map(actor => new Cast(actor));
+    // sCast.forEach(actor => { this.cast.push(new Cast(actor)); });
+
+    // });
   }
   title: string;
   subType: string;
   releaseData: string;
   genres: string[];
-  cast: string;
+  sCast: Array<string>;
+  // cast: Array<Cast>;
   directors: Array<string>;
   shortDescription: string;
   longDescription: string;
-  rated: string;
+  rated: Array<string>;
   advisories: Array<string>;
   runTime: string;
-
 }
 
 
