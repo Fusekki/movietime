@@ -41,14 +41,14 @@ export class Movie {
     sLongDescription: string,
     sRated: string,
     advisories: Array<string>,
-    sRunTime: string,
-    theaters: Array<any>,
-    sPoster: string,
-    sVoteAverage: string,
-    sPopularity: string,
-    videos: Array<any>[]
+    sRunTime: string
+    // theaters: Array<any>,
+    // sPoster: string,
+    // sVoteAverage: string,
+    // sPopularity: string,
+    // videos: Array<any>[]
   ) {
-    this.theaters = theaters.map(theater => new Theater(theater.name, theater.id, theater.times));
+    // this.theaters = theaters.map(theater => new Theater(theater.name, theater.id, theater.times));
     this.cast = cast.split(',').map(actor => new Cast(actor));
   }
 }
