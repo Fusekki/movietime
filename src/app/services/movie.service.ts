@@ -1,19 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
-import { Showings, Ratings } from '../interfaces/showings';
-// import { Cast } from '../classes/cast';
+import { Ratings } from '../interfaces/showings';
 import { Movie } from '../classes/movie';
-// import { Theater } from '../classes/theater';
-import { Area } from '../classes/area';
 import { ReportService } from './report.service';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 
 @Injectable()
 export class MovieService {
@@ -22,8 +11,7 @@ export class MovieService {
   moviePosters: string[] = [];
   movieposter: string;
 
-  constructor(private http: HttpClient,
-    private reportService: ReportService) { }
+  constructor(private reportService: ReportService) { }
 
   parseMovies(showings, theaters) {
     // console.log(showings);
