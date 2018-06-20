@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
@@ -29,10 +29,12 @@ import { AreaService } from './services/area.service';
 import { ApiService } from './services/api.service';
 import { MovieService } from './services/movie.service';
 import { MoviedbService } from './services/moviedb.service';
+import { ReportService } from './services/report.service';
+import { TheaterService } from './services/theater.service';
 
 import { DurationPipe } from './classes/duration-pipe';
 
-import { ReportService } from './services/report.service';
+
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -111,6 +113,7 @@ import { ShowtimesHeaderComponent } from './components/showtimes-header/showtime
     MovieService,
     MoviedbService,
     ReportService,
+    TheaterService,
     UserService],
   bootstrap: [AppComponent]
 })
