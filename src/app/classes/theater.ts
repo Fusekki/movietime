@@ -41,6 +41,7 @@ export class Theater {
 }
 
 export class Movie {
+  private times: Array<string>;
   public cast: Array<Cast>;
   public theaters: Array<Theater>;
   constructor(
@@ -54,11 +55,12 @@ export class Movie {
     sLongDescription: string,
     sRated: Array<string>,
     advisories: Array<string>,
-    sRunTime: string
+    sRunTime: string,
+    sTimes: string
   ) {
     this.title = sTitle;
     this.subType = sSubType;
-    this.releaseData = sReleaseDate;
+    this.releaseDate = sReleaseDate;
     this.genres = genres;
     this.directors = directors;
     this.shortDescription = sShortDescription;
@@ -70,6 +72,7 @@ export class Movie {
     if (!sCast === undefined) {
         sCast.forEach(actor => this.cast.push(new Cast(actor)));
     }
+    this.times = new Array<string>(sTimes);
 
     // this.theaters = theaters.map(theater => new Theater(theater.name, theater.id, theater.times));
     // this.cast = sCast.lit(',').map(actor => new Cast(actor));
@@ -79,7 +82,7 @@ export class Movie {
   }
   title: string;
   subType: string;
-  releaseData: string;
+  releaseDate: string;
   genres: string[];
   sCast: Array<string>;
   // cast: Array<Cast>;
