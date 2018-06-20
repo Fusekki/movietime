@@ -20,32 +20,51 @@ export class TheaterService {
       showing.showtimes.map(show => {
         let id = parseInt(show.theatre.id, 10);
         if (theaterList.indexOf(id > -1)) {
-          // Create the movie
-          let m = new Movie(
-            showing.title,
-            showing.subType,
-            showing.releaseDate,
-            showing.genres,
-            showing.topCast,
-            showing.directors,
-            showing.shortDescription,
-            showing.longDescription,
-            showing.ratings,
-            showing.advisories,
-            showing.runTime);
-          console.log('Movie added ');
-          console.log(m);
-          console.log(show);
-          let t = new Theater(
-            show.theatre.name,
-            show.theatre.id,
-            m
-          );
-          console.log(t);
-          this.theaters.push(t);
+          // Check if the theater has been added to the array
+          // var isPresent = this.theaters.some(function(el){ return el.id === show.theatre.id});
+
+          let isPresent = this.theaters.some(theater => theater.id === show.theatre.id);
+           console.log(isPresent);
+           if (isPresent) {
+             // Theater exists.  Let's check if the movie exists as well.
+             isPresent = this.theaters.some(theater => theater.movies.some(movie => movie.title === showing.title));
+             console.log('Movie check ' + isPresent);
+             if (isPresent) {
+               // Movie exists.  Push the time to the date/time array.
+             }
+           }
+          // Theater is not in the array, push it and the movie as a new object.
+          this.theaters.push(this.createTheater(show, showing));
         }
       });
     });
     return this.theaters;
+  }
+
+  createTheater(s, g) {
+    let m = new Movie(
+      g.title,
+      g.subType,
+      g.releaseDate,
+      g.genres,
+      g.topCast,
+      g.directors,
+      g.shortDescription,
+      g.longDescription,
+      g.ratings,
+      g.advisories,
+      g.runTime,
+      s.dateTime);
+    console.log('Movie added ');
+    console.log(s);
+    console.log(g);
+    let t = new Theater(
+      s.theatre.name,
+      s.theatre.id,
+      m
+    );
+    console.log(t);
+
+    return t;
   }
 }
