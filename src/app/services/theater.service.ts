@@ -11,13 +11,46 @@ export class TheaterService {
 
   constructor() {
     this.theaters = new Array<Theater>();
-   }
+  }
 
   parseTheaters(showings, theaterList?) {
-    console.log(showings);
-    console.log(theaterList);
+    // console.log(showings);
+    // console.log(theaterList);
+    let t = new Array<Theater>();
+    let target = new Array<number>();
     this.theaters = showings.map(showing => {
-      console.log(showing);
+      console.log(showing.title);
+      showing.showtimes.map(show => {
+        if (theaterList.indexOf(show.theatre.id) > -1) {
+          let m = new Movie(
+            show.title,
+            show.subType,
+            show.releaseDate,
+            show.genres,
+            show.topCast,
+            show.directors,
+            show.shortDescription,
+            show.longDescription,
+            show.ratings,
+            show.advisories,
+            show.runTime);
+          t.push(show.theatre.name, show.theatre.id, []);
+        }
+        // theaterList.array.forEach(id => {
+
+        // });
+        console.log(show.theatre.id);
+
+      });
+
+      // for (let x = 0; x < theaterList.length; x++ ) {
+
+      // console.log(showing);
+      // let id = showing.showtimes.find(showtime => showtime.id === theaterList[x]);
+      // console.log('Theater ' + theaterList[x]);
+      // console.log(id);
+      // }
+
     });
 
     // // console.log(showings);
@@ -78,6 +111,6 @@ export class TheaterService {
     // }
     // this.log('Movie parse received');
     // return this.movies;
-    return theaters;
+    return this.theaters;
   }
 }
