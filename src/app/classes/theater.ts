@@ -25,6 +25,8 @@ class Video {
 }
 
 export class Theater {
+
+  public movies: Array<Movie>;
   constructor(
     sName: string,
     nId: number,
@@ -37,11 +39,11 @@ export class Theater {
   // times: string[];
   name: string;
   id: number;
-  movies: Array<Movie>;
+  // movies: Array<Movie>;
 }
 
 export class Movie {
-  private times: Array<string>;
+  public times: Array<string>;
   public cast: Array<Cast>;
   public theaters: Array<Theater>;
   constructor(
@@ -78,6 +80,7 @@ export class Movie {
     // this.cast = sCast.lit(',').map(actor => new Cast(actor));
     // sCast.forEach(actor => { this.cast.push(new Cast(actor)); });
 
+
     // });
   }
   title: string;
@@ -92,6 +95,7 @@ export class Movie {
   rated: Array<string>;
   advisories: Array<string>;
   runTime: string;
+
 }
 
 
