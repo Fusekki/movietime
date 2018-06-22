@@ -19,24 +19,28 @@ export class TheaterService {
       console.log(showing.title);
       showing.showtimes.map(show => {
         let id = parseInt(show.theatre.id, 10);
-        if (theaterList.indexOf(id > -1)) {
-          // Check if the theater has been added to the array
-          // var isPresent = this.theaters.some(function(el){ return el.id === show.theatre.id});
-
-          let isPresent = this.theaters.some(theater => theater.id === show.theatre.id);
-           console.log(isPresent);
-           if (isPresent) {
-             // Theater exists.  Let's check if the movie exists as well.
-             isPresent = this.theaters.some(theater => theater.movies.some(movie => movie.title === showing.title));
-             console.log('Movie check ' + isPresent);
-             if (isPresent) {
-               // Movie exists.  Push the time to the date/time array.
-             }
-           }
+        console.log(theaterList.indexOf(id > -1));
+        if (theaterList.indexOf(id) === -1) {
           // Theater is not in the array, push it and the movie as a new object.
-          this.theaters.push(this.createTheater(show, showing));
-        }
-      });
+          console.log('Theater is a favorite.');
+          // Check if the theater has been added to the array
+          let isPresent = this.theaters.some(theater => theater.id === show.theatre.id);
+          if (isPresent) {
+            console.log('Theater is in array.');
+            console.log('Checking if movie exists in array.');
+            isPresent = this.theaters.some(theater => theater.movies.some(movie => movie.title === showing.title));
+            if (isPresent) {
+              // Theater exists.  Let's check if the movie exists as well.
+              console.log('Movie is in array. Need to add the time to the Movie object.');
+            } else {
+              console.log('Movie is not in array.  Need to add movie to theater array.');
+            }
+          } else {
+            // Theater is not present
+            console.log('Adding new object.');
+            this.theaters.push(this.createTheater(show, showing));
+          }
+        });
     });
     return this.theaters;
   }
