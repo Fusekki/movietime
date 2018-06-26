@@ -73,6 +73,7 @@ export class TheaterService {
             // Theater is not present
             console.log('Adding new object.');
             this.theaters.push(this.createTheater(show, showing));
+            }
           }
         });
     });
