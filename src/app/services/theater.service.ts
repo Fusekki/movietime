@@ -37,8 +37,8 @@ export class TheaterService {
             let t = this.theaters.find(theater => theater.id === show.theatre.id);
             console.log(t);
             if (t.movies.some(movie => movie.title === showing.title)) {
-              t = t.movies.find(movie => movie.title === showing.title);
-              console.log(t);
+              let m = t.movies.find(movie => movie.title === showing.title);
+              console.log(m);
             } else {
               console.log('Nothing to do here.');
             }
