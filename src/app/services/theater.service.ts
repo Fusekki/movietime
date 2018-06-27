@@ -92,7 +92,7 @@ export class TheaterService {
             console.log('Creating theater object and pushing to this.theaters.');
             console.log('Theater name : ' + show.theatre.name);
             console.log('Theater time : ' + show.dateTime);
-            console.log('Movie name : ' showing.title);
+            console.log('Movie name : ' + showing.title);
             this.theaters.push(this.createTheater(show, showing));
             }
           } else {
