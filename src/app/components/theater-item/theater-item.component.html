@@ -2,7 +2,6 @@
     <mat-list-item class='short'>
       <mat-icon mat-list-icon>theaters</mat-icon>
       <h2 mat-line class='theater-name'>{{theater.name}}</h2>
-      {{theater.id}}
     </mat-list-item>
     <div class='slide-container'>
       <button *ngIf='checkTheater(theater); else elseBlock' mat-icon-button color="warn" (click)='removeTheater(theater);'>
@@ -14,11 +13,20 @@
         </button>
       </ng-template>
     </div>
-    <mat-list-item>
-      <div class="box">
-        <span class='time' *ngFor="let time of theater.times">
-          <div mat-line class='yellow-box'>{{time | date: 'shortTime'}}</div>
-        </span>
-      </div>
-    </mat-list-item>
   </mat-list>
+  <div *ngFor='let movie of theater.movies'>
+    <mat-list>
+      <app-movie-item [user]='user' [movie]='movie'></app-movie-item>
+      <mat-list-item>
+        <div class="box">
+          <span class='time' *ngFor="let time of movie.times">
+            <div mat-line class='yellow-box'>{{time | date: 'shortTime'}}</div>
+          </span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+
+
+
