@@ -1,0 +1,46 @@
+.mat-list {
+  background: lightgray;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.short {
+  height: 24px !important;
+  margin: 5px 0;
+}
+
+.theater-name {
+  margin-left: -16px !important;
+}
+
+.time {
+  padding: 5px;
+}
+
+.yellow-box {
+  background: yellow;
+  border-radius: 5px;
+  color: black;
+  font-size: 13px;
+  font-weight: bold;
+  min-width: 87px;
+  padding: 7px 15px;
+  text-align: center;
+}
+
+.slide-container {
+  display: flex;
+
+  justify-content: flex-end;
+  width: 90%;
+}
+
+>>> .mat-slide-toggle-content {
+  font-size: 12px !important;
+}
+
+
