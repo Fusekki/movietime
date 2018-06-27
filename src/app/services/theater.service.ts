@@ -19,8 +19,9 @@ export class TheaterService {
     showings.map(showing => {
       showing.showtimes.map(show => {
         const id = parseInt(show.theatre.id, 10);
-        if (theaterList.indexOf(id) === -1) {
+        if (theaterList.indexOf(id) !== -1) {
           // Theater is not in the array, push it and the movie as a new object.
+          // console.log(theaterList);
           // console.log('Theater is a favorite.');
           // console.log(show.theatre.name);
           // Check if the theater has been added to the array
