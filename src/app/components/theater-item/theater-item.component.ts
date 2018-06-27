@@ -14,11 +14,10 @@ export class TheaterItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.theater);
   }
 
   checkTheater(theater: Theater) {
-
-      console.log(this.user);
 
       // Convert to int
       theater.id = +theater.id;
@@ -29,10 +28,8 @@ export class TheaterItemComponent implements OnInit {
 
       // console.log(this.user.theaters.indexOf(theater.id));
       if (this.user.theaters.indexOf(theater.id) > -1) {
-        console.log('match.');
         return true;
       } else {
-        console.log(' no match.');
         return false;
       }
   }
