@@ -2,6 +2,10 @@
   background: lightgray;
 }
 
+.list-container {
+  margin-top: 20px;
+}
+
 .box {
   display: flex;
   flex-wrap: wrap;
