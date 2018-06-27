@@ -9,6 +9,9 @@
   <div class='list-wrapper' *ngFor='let movie of _movies'>
     <div class='list-container'>
       <app-movie-item [movie]='movie' [user]='user'></app-movie-item>
+      <mat-list>
+          <app-showtimes-header [zipcode]='user.zipcode'></app-showtimes-header>
+      </mat-list>
       <app-theatre-times *ngFor='let theater of movie.theaters' [theater]='theater' [user]='user'></app-theatre-times>
       <app-movie-info [movie]='movie'></app-movie-info>
     </div>
